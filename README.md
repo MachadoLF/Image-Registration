@@ -1,3 +1,3 @@
 # Image-Registration
 Image Registration Implementations:
-This repository contains my implementations or adapted examples regarding image registration applications.
+This repository contains implementations or adapted examples regarding image registration applications.
