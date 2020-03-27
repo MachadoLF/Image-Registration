@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="MachadoMIRunner"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MachadoMIRunner">
+				<Option output="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/debug/MachadoMIRunner" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/debug"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DITK_IO_FACTORY_REGISTER_MANAGER"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add option="-D_LARGEFILE64_SOURCE"/>
+					<Add option="-D_LARGEFILE_SOURCE"/>
+					<Add option="-DDEBUG"/>
+					<Add directory="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/debug/ITKFactoryRegistration"/>
+					<Add directory="/usr/local/include/ITK-5.0"/>
+					<Add directory="/usr/local/include/ITK-5.0/Utilities"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 MachadoMIRunner"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MachadoMIRunner/fast">
+				<Option output="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/debug/MachadoMIRunner" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/debug"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DITK_IO_FACTORY_REGISTER_MANAGER"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add option="-D_LARGEFILE64_SOURCE"/>
+					<Add option="-D_LARGEFILE_SOURCE"/>
+					<Add option="-DDEBUG"/>
+					<Add directory="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/debug/ITKFactoryRegistration"/>
+					<Add directory="/usr/local/include/ITK-5.0"/>
+					<Add directory="/usr/local/include/ITK-5.0/Utilities"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 MachadoMIRunner/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/leo/Desktop/Doutorado/Registration\ Modules/2DMachadoMIRunner/debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/MachadoMIRunner.cxx">
+			<Option target="MachadoMIRunner"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/ITKConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/ITKConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/ITKModuleAPI.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/ITKTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/ITKTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/UseITK.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/itkImageIOFactoryRegisterManager.h.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/itkMeshIOFactoryRegisterManager.h.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/itkTransformIOFactoryRegisterManager.h.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKAnisotropicSmoothing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKAntiAlias.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKBiasCorrection.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKBinaryMathematicalMorphology.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKClassifiers.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKColormap.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKConnectedComponents.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKConvolution.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKCurvatureFlow.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKDICOMParser.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKDeconvolution.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKDeformableMesh.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKDenoising.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKDiffusionTensorImage.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKDisplacementField.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKDistanceMap.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKDoubleConversion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKEigen.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKEigen3.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKExpat.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKFFT.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKFastMarching.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKFiniteDifference.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKGDCM.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKGIFTI.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKGPUAnisotropicSmoothing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKGPUCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKGPUFiniteDifference.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKGPUImageFilterBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKGPUPDEDeformableRegistration.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKGPURegistrationCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKGPUSmoothing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKGPUThresholding.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKGoogleTest.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKHDF5.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOBMP.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOBioRad.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOBruker.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOCSV.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOGDCM.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOGE.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOGIPL.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOHDF5.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOIPL.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOImageBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOJPEG.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOJPEG2000.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOLSM.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOMINC.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOMRC.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOMesh.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOMeshBYU.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOMeshBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOMeshFreeSurfer.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOMeshGifti.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOMeshOBJ.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOMeshOFF.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOMeshVTK.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOMeta.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIONIFTI.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIONRRD.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOPNG.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIORAW.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOSiemens.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOSpatialObjects.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOStimulate.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOTIFF.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOTransformBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOTransformHDF5.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOTransformInsightLegacy.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOTransformMatlab.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOVTK.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIOXML.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKImageAdaptors.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKImageCompare.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKImageCompose.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKImageFeature.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKImageFilterBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKImageFrequency.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKImageFunction.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKImageFusion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKImageGradient.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKImageGrid.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKImageIntensity.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKImageLabel.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKImageNoise.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKImageSources.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKImageStatistics.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKIntegratedTest.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKInternalEigen3Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKInternalEigen3ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKInternalEigen3Targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKJPEG.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKKLMRegionGrowing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKKWIML.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKKWSys.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKLIBLBFGS.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKLabelMap.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKLabelVoting.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKLevelSets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKLevelSetsv4.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKMINC.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKMarkovRandomFieldsClassifiers.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKMathematicalMorphology.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKMesh.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKMetaIO.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKMetricsv4.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKNIFTI.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKNarrowBand.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKNetlib.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKNrrdIO.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKOpenJPEG.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKOptimizers.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKOptimizersv4.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKPDEDeformableRegistration.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKPNG.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKPath.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKPolynomials.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKQuadEdgeMesh.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKQuadEdgeMeshFiltering.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKRegionGrowing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKRegistrationCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKRegistrationMethodsv4.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKSignedDistanceFunction.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKSmoothing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKSpatialFunction.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKSpatialObjects.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKStatistics.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKSuperPixel.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKTIFF.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKTestKernel.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKThresholding.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKTransform.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKTransformFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKVNL.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKVNLInstantiation.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKVTK.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKVideoCore.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKVideoFiltering.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKVideoIO.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKVoronoi.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKWatersheds.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/home/leo/Desktop/Doutorado/Registration Modules/2DMachadoMIRunner/../../../../../../usr/local/lib/cmake/ITK-5.0/Modules/ITKZLIB.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
