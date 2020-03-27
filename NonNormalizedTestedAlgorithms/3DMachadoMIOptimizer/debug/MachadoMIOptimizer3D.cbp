@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="MachadoMIOptimizer3D"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\GeneralSources\;CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\;CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\;CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\;CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\;CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\;CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\;CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\Modules\;CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\Modules\ThirdParty\;CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\Modules\ThirdParty\Eigen3\;CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\Modules\ThirdParty\Eigen3\src\;CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\Modules\ThirdParty\Eigen3\src\itkeigen\;CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\CMake\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/ninja -v all"/>
+					<CompileFile command="/usr/bin/ninja -v &quot;$file&quot;"/>
+					<Clean command="/usr/bin/ninja -v clean"/>
+					<DistClean command="/usr/bin/ninja -v clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/ninja -v rebuild_cache"/>
+					<CompileFile command="/usr/bin/ninja -v &quot;$file&quot;"/>
+					<Clean command="/usr/bin/ninja -v clean"/>
+					<DistClean command="/usr/bin/ninja -v clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MachadoMIOptimizer3D">
+				<Option output="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/debug/MachadoMIOptimizer3D" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/debug"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DITK_IO_FACTORY_REGISTER_MANAGER"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add option="-D_LARGEFILE64_SOURCE"/>
+					<Add option="-D_LARGEFILE_SOURCE"/>
+					<Add option="-DDEBUG"/>
+					<Add directory="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/debug/ITKFactoryRegistration"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/Watersheds/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Video/IO/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Video/Filtering/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Video/Core/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Bridge/VTK/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/TestKernel/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/SuperPixel/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/SpatialFunction/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Registration/RegistrationMethodsv4/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/RegionGrowing/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/QuadEdgeMeshFiltering/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Registration/Metricsv4/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Numerics/Optimizersv4/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/MarkovRandomFieldsClassifiers/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/LevelSetsv4/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/LabelVoting/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/libLBFGS/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/KLMRegionGrowing/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageNoise/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageFusion/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageFrequency/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/VTK/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/TransformMatlab/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/TransformInsightLegacy/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/TransformHDF5/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/TransformBase/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/TransformFactory/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/Stimulate/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/SpatialObjects/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/XML/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/Siemens/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/RAW/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/PNG/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/PNG/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/PNG/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/NRRD/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/NrrdIO/src/NrrdIO"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/NrrdIO/src/NrrdIO"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/NIFTI/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/Meta/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/Mesh/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MeshVTK/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MeshOFF/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MeshOBJ/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MeshGifti/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MeshFreeSurfer/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MeshBYU/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MeshBase/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/Voronoi/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MRC/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MINC/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/HDF5/src/itkhdf5"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/HDF5/src/itkhdf5"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/MINC/src/libminc/volume_io/Include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/MINC/src/libminc/libsrc2"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/MINC/src/libminc/libcommon"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/MINC/src/libminc"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/MINC"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/MINC"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/LSM/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/TIFF/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/TIFF/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/TIFF/src/itktiff"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/TIFF/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/JPEG2000/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/OpenJPEG/src/openjpeg"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/OpenJPEG/src/openjpeg"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/JPEG/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/JPEG/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/JPEG/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/HDF5/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/GIPL/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/GE/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/IPL/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/GDCM/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/CSV/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/Bruker/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/BioRad/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/BMP/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/HDF5/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/HDF5/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/GPUThresholding/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/GPUSmoothing/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Registration/GPUPDEDeformable/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Registration/PDEDeformable/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Registration/Common/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Registration/GPUCommon/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/GPUImageFilterBase/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/GPUAnisotropicSmoothing/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/GPUFiniteDifference/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/GPUCommon/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/GIFTI/src/gifticlib"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/GDCM/src/gdcm/Source/DataStructureAndEncodingDefinition"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/GDCM/src/gdcm/Source/MessageExchangeDefinition"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/GDCM/src/gdcm/Source/InformationObjectDefinition"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/GDCM/src/gdcm/Source/Common"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/GDCM/src/gdcm/Source/DataDictionary"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/GDCM/src/gdcm/Source/MediaStorageAndFileFormat"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/GDCM/src/gdcm/Source/Common"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/GDCM"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/Expat/src/expat"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/Expat/src/expat"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Numerics/Eigen/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/DisplacementField/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/DiffusionTensorImage/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/Denoising/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/DeformableMesh/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/Deconvolution/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/DICOMParser/src/DICOMParser"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/DICOMParser/src/DICOMParser"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/Convolution/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/FFT/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/Colormap/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/Classifiers/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/BiasCorrection/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Numerics/Polynomials/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/AntiAlias/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/LevelSets/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/SignedDistanceFunction/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Numerics/Optimizers/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageFeature/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageSources/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageGradient/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/Smoothing/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageCompare/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/ImageBase/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/IO/ImageBase"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/FastMarching/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/QuadEdgeMesh/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/DistanceMap/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Numerics/NarrowBand/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/BinaryMathematicalMorphology/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/MathematicalMorphology/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/ConnectedComponents/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/Thresholding/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/LabelMap/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageLabel/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageIntensity/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/Path/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageStatistics/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/SpatialObjects/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/MetaIO/src/MetaIO/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/MetaIO/src/MetaIO/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/ZLIB/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/ZLIB/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/Mesh/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageCompose/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/AnisotropicSmoothing/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageGrid/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/ImageFunction/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/Transform/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Numerics/Statistics/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/Netlib"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/ImageAdaptors/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/CurvatureFlow/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageFilterBase/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/FiniteDifference/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/Common/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/Core/Common"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/VNL/src/vxl/core"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/VNL/src/vxl/vcl"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/VNL/src/vxl/v3p/netlib"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/VNL/src/vxl/core"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/KWIML/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/KWIML/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/Eigen3/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/Eigen3/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/DoubleConversion/src/double-conversion"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/DoubleConversion/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/HDF5/src/itkhdf5/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/NIFTI/src/nifti/znzlib"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/NIFTI/src/nifti/niftilib"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/VNL/src/vxl/vcl"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/VNL/src/vxl/v3p/netlib"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/KWSys/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/Eigen3/src/itkeigen/.."/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/Eigen3/src/itkeigen/.."/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/VNL/src/vxl/core/vnl/algo"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/VNL/src/vxl/core/vnl"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/NIFTI/src/nifti/znzlib"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/NIFTI/src/nifti/niftilib"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/HDF5/src/itkhdf5/c++/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/HDF5/src/itkhdf5/c++/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/HDF5/src/itkhdf5/src"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/ninja -v MachadoMIOptimizer3D"/>
+					<CompileFile command="/usr/bin/ninja -v &quot;$file&quot;"/>
+					<Clean command="/usr/bin/ninja -v clean"/>
+					<DistClean command="/usr/bin/ninja -v clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MachadoMIOptimizer3D/fast">
+				<Option output="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/debug/MachadoMIOptimizer3D" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/debug"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DITK_IO_FACTORY_REGISTER_MANAGER"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add option="-D_LARGEFILE64_SOURCE"/>
+					<Add option="-D_LARGEFILE_SOURCE"/>
+					<Add option="-DDEBUG"/>
+					<Add directory="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/debug/ITKFactoryRegistration"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/Watersheds/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Video/IO/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Video/Filtering/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Video/Core/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Bridge/VTK/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/TestKernel/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/SuperPixel/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/SpatialFunction/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Registration/RegistrationMethodsv4/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/RegionGrowing/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/QuadEdgeMeshFiltering/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Registration/Metricsv4/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Numerics/Optimizersv4/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/MarkovRandomFieldsClassifiers/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/LevelSetsv4/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/LabelVoting/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/libLBFGS/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/KLMRegionGrowing/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageNoise/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageFusion/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageFrequency/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/VTK/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/TransformMatlab/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/TransformInsightLegacy/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/TransformHDF5/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/TransformBase/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/TransformFactory/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/Stimulate/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/SpatialObjects/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/XML/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/Siemens/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/RAW/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/PNG/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/PNG/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/PNG/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/NRRD/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/NrrdIO/src/NrrdIO"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/NrrdIO/src/NrrdIO"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/NIFTI/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/Meta/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/Mesh/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MeshVTK/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MeshOFF/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MeshOBJ/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MeshGifti/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MeshFreeSurfer/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MeshBYU/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MeshBase/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/Voronoi/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MRC/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/MINC/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/HDF5/src/itkhdf5"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/HDF5/src/itkhdf5"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/MINC/src/libminc/volume_io/Include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/MINC/src/libminc/libsrc2"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/MINC/src/libminc/libcommon"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/MINC/src/libminc"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/MINC"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/MINC"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/LSM/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/TIFF/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/TIFF/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/TIFF/src/itktiff"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/TIFF/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/JPEG2000/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/OpenJPEG/src/openjpeg"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/OpenJPEG/src/openjpeg"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/JPEG/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/JPEG/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/JPEG/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/HDF5/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/GIPL/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/GE/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/IPL/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/GDCM/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/CSV/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/Bruker/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/BioRad/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/BMP/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/HDF5/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/HDF5/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/GPUThresholding/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/GPUSmoothing/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Registration/GPUPDEDeformable/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Registration/PDEDeformable/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Registration/Common/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Registration/GPUCommon/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/GPUImageFilterBase/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/GPUAnisotropicSmoothing/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/GPUFiniteDifference/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/GPUCommon/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/GIFTI/src/gifticlib"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/GDCM/src/gdcm/Source/DataStructureAndEncodingDefinition"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/GDCM/src/gdcm/Source/MessageExchangeDefinition"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/GDCM/src/gdcm/Source/InformationObjectDefinition"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/GDCM/src/gdcm/Source/Common"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/GDCM/src/gdcm/Source/DataDictionary"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/GDCM/src/gdcm/Source/MediaStorageAndFileFormat"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/GDCM/src/gdcm/Source/Common"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/GDCM"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/Expat/src/expat"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/Expat/src/expat"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Numerics/Eigen/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/DisplacementField/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/DiffusionTensorImage/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/Denoising/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/DeformableMesh/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/Deconvolution/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/DICOMParser/src/DICOMParser"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/DICOMParser/src/DICOMParser"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/Convolution/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/FFT/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/Colormap/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/Classifiers/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/BiasCorrection/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Numerics/Polynomials/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/AntiAlias/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/LevelSets/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/SignedDistanceFunction/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Numerics/Optimizers/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageFeature/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageSources/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageGradient/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/Smoothing/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageCompare/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/IO/ImageBase/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/IO/ImageBase"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/FastMarching/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/QuadEdgeMesh/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/DistanceMap/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Numerics/NarrowBand/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/BinaryMathematicalMorphology/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/MathematicalMorphology/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Segmentation/ConnectedComponents/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/Thresholding/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/LabelMap/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageLabel/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageIntensity/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/Path/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageStatistics/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/SpatialObjects/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/MetaIO/src/MetaIO/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/MetaIO/src/MetaIO/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/ZLIB/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/ZLIB/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/Mesh/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageCompose/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/AnisotropicSmoothing/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageGrid/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/ImageFunction/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/Transform/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Numerics/Statistics/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/Netlib"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/ImageAdaptors/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/CurvatureFlow/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Filtering/ImageFilterBase/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/FiniteDifference/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/Core/Common/include"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/Core/Common"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/VNL/src/vxl/core"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/VNL/src/vxl/vcl"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/VNL/src/vxl/v3p/netlib"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/VNL/src/vxl/core"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/KWIML/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/KWIML/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/Eigen3/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/Eigen3/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/DoubleConversion/src/double-conversion"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/DoubleConversion/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/HDF5/src/itkhdf5/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/NIFTI/src/nifti/znzlib"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/NIFTI/src/nifti/niftilib"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/VNL/src/vxl/vcl"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/VNL/src/vxl/v3p/netlib"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/KWSys/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/Eigen3/src/itkeigen/.."/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/Eigen3/src/itkeigen/.."/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/VNL/src/vxl/core/vnl/algo"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/VNL/src/vxl/core/vnl"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/NIFTI/src/nifti/znzlib"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/NIFTI/src/nifti/niftilib"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/HDF5/src/itkhdf5/c++/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Modules/ThirdParty/HDF5/src/itkhdf5/c++/src"/>
+					<Add directory="/PHShome/lfm23/Desktop/GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/HDF5/src/itkhdf5/src"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/ninja -v MachadoMIOptimizer3D/fast"/>
+					<CompileFile command="/usr/bin/ninja -v &quot;$file&quot;"/>
+					<Clean command="/usr/bin/ninja -v clean"/>
+					<DistClean command="/usr/bin/ninja -v clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/ninja -v edit_cache"/>
+					<CompileFile command="/usr/bin/ninja -v &quot;$file&quot;"/>
+					<Clean command="/usr/bin/ninja -v clean"/>
+					<DistClean command="/usr/bin/ninja -v clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/MachadoMIOptimizer3D.cxx">
+			<Option target="MachadoMIOptimizer3D"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/ITKConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/ITKConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/ITKTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKAnisotropicSmoothing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKAntiAlias.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKBiasCorrection.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKBinaryMathematicalMorphology.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKClassifiers.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKColormap.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKConnectedComponents.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKConvolution.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKCurvatureFlow.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKDICOMParser.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKDeconvolution.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKDeformableMesh.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKDenoising.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKDiffusionTensorImage.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKDisplacementField.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKDistanceMap.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKDoubleConversion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKEigen.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKEigen3.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKExpat.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKFFT.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKFastMarching.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKFiniteDifference.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKGDCM.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKGIFTI.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKGPUAnisotropicSmoothing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKGPUCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKGPUFiniteDifference.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKGPUImageFilterBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKGPUPDEDeformableRegistration.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKGPURegistrationCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKGPUSmoothing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKGPUThresholding.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKGoogleTest.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKHDF5.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOBMP.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOBioRad.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOBruker.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOCSV.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOGDCM.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOGE.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOGIPL.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOHDF5.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOIPL.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOImageBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOJPEG.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOJPEG2000.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOLSM.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOMINC.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOMRC.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOMesh.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOMeshBYU.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOMeshBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOMeshFreeSurfer.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOMeshGifti.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOMeshOBJ.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOMeshOFF.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOMeshVTK.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOMeta.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIONIFTI.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIONRRD.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOPNG.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIORAW.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOSiemens.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOSpatialObjects.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOStimulate.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOTIFF.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOTransformBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOTransformHDF5.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOTransformInsightLegacy.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOTransformMatlab.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOVTK.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIOXML.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKImageAdaptors.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKImageCompare.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKImageCompose.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKImageFeature.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKImageFilterBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKImageFrequency.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKImageFunction.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKImageFusion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKImageGradient.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKImageGrid.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKImageIntensity.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKImageLabel.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKImageNoise.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKImageSources.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKImageStatistics.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKIntegratedTest.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKJPEG.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKKLMRegionGrowing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKKWIML.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKKWSys.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKLIBLBFGS.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKLabelMap.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKLabelVoting.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKLevelSets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKLevelSetsv4.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKMINC.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKMarkovRandomFieldsClassifiers.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKMathematicalMorphology.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKMesh.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKMetaIO.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKMetricsv4.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKNIFTI.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKNarrowBand.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKNetlib.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKNrrdIO.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKOpenJPEG.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKOptimizers.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKOptimizersv4.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKPDEDeformableRegistration.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKPNG.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKPath.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKPolynomials.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKQuadEdgeMesh.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKQuadEdgeMeshFiltering.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKRegionGrowing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKRegistrationCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKRegistrationMethodsv4.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKSignedDistanceFunction.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKSmoothing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKSpatialFunction.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKSpatialObjects.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKStatistics.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKSuperPixel.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKTIFF.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKTestKernel.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKThresholding.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKTransform.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKTransformFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKVNL.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKVNLInstantiation.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKVTK.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKVideoCore.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKVideoFiltering.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKVideoIO.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKVoronoi.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKWatersheds.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/lib/cmake/ITK-5.0/Modules/ITKZLIB.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/Eigen3/src/itkeigen/ITKInternalEigen3Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\Modules\ThirdParty\Eigen3\src\itkeigen\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/Eigen3/src/itkeigen/ITKInternalEigen3ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\Modules\ThirdParty\Eigen3\src\itkeigen\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/Build/Modules/ThirdParty/Eigen3/src/itkeigen/ITKInternalEigen3Targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\Build\Modules\ThirdParty\Eigen3\src\itkeigen\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/CMake/ITKModuleAPI.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\CMake\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/CMake/UseITK.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\CMake\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/CMake/itkImageIOFactoryRegisterManager.h.in">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\CMake\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/CMake/itkMeshIOFactoryRegisterManager.h.in">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\CMake\"/>
+		</Unit>
+		<Unit filename="/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/../../../GeneralSources/InsightToolkit-5.0.1/CMake/itkTransformIOFactoryRegisterManager.h.in">
+			<Option virtualFolder="CMake Files\..\..\..\GeneralSources\InsightToolkit-5.0.1\CMake\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

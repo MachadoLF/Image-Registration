@@ -1,0 +1,3 @@
+/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/debug/CMakeFiles/rebuild_cache.dir
+/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/debug/CMakeFiles/MachadoMIOptimizer3D.dir
+/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/debug/CMakeFiles/edit_cache.dir
