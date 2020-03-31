@@ -1,0 +1,3 @@
+/home/leo/Desktop/Doutorado/Registration Modules/MultiStage/MultiStage_raw/debug/CMakeFiles/rebuild_cache.dir
+/home/leo/Desktop/Doutorado/Registration Modules/MultiStage/MultiStage_raw/debug/CMakeFiles/MultiStageImageRegistration1.dir
+/home/leo/Desktop/Doutorado/Registration Modules/MultiStage/MultiStage_raw/debug/CMakeFiles/edit_cache.dir
