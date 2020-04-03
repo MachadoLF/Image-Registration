@@ -98,6 +98,7 @@ public:
     std::cout << optimizer->GetValue() << "   ";
     std::cout << optimizer->GetCurrentPosition() << std::endl;
 
+    myfile <<optimizer->GetCurrentIteration()<<","<<optimizer->GetValue()<<std::endl;
     }
 };
 
@@ -126,7 +127,6 @@ int main( int argc, char *argv[] )
                                     MovingImageType,
                                     TransformType    > RegistrationType;
 
-
   myfile.open ("performance.csv");
 
   // Defining specific metric
@@ -136,7 +136,6 @@ int main( int argc, char *argv[] )
   // Mattes
   // typedef itk::MattesMutualInformationImageToImageMetricv4< FixedImageType,MovingImageType > MetricType;
   // Software Guide : EndCodeSnippet
-
 
   typedef itk::ImageFileReader< FixedImageType  > FixedImageReaderType;
   typedef itk::ImageFileReader< MovingImageType > MovingImageReaderType;
@@ -151,187 +150,103 @@ int main( int argc, char *argv[] )
 
   OptimizerType::Pointer      optimizer     = OptimizerType::New();
 
-  // Number of qValues tested
-  unsigned int numOfInstances = 1;
-  int x_times = 1;
+  double qValue = 0.9;
 
-  myfile <<"# All the points presented here is averaged over "<<x_times<<" times execution."<<std::endl;
-  myfile <<"qValue,Elapsed Time,Number of Iterations,Metric Value,RelativeError"<<std::endl;
+  registration->SetOptimizer(     optimizer     );
+  // Setting images
 
-  double qValueIni = 0.8;
-  for (unsigned int i = 0; i < numOfInstances; ++i) // qValue Loop
-  {
-      double meanElapsedTime = 0.0;
-      double meanNumberOfIterations = 0.0;
-      double meanMetricValue = 0.0;
+  // Setting Metric
+  MetricType::Pointer metric = MetricType::New();
+  metric->SetqValue(qValue);
+  registration->SetMetric( metric  );
 
-      double meanRelativeError = 0.0;
+  //  The metric requires the user to specify the number of bins
+  //  used to compute the entropy. In a typical application, 50 histogram bins
+  //  are sufficient.
 
-      double qValue = qValueIni + 0.01*i;
+  unsigned int numberOfBins = 24;
 
+  if( argc > 3 )
+    {
+    numberOfBins = atoi( argv[3] );
+    }
 
-      if (qValue == 1.0){
-          continue;
-      }
+  metric->SetNumberOfHistogramBins( numberOfBins );
 
-      for (int y = 0; y < x_times; ++y) { // Average x times loop
+  metric->SetUseMovingImageGradientFilter( false );
+  metric->SetUseFixedImageGradientFilter( false );
 
-          registration->SetOptimizer(     optimizer     );
-          // Setting images
+  // Using the whole image in the Mutual information calculation
+  metric->SetUseSampledPointSet( false );
 
-          // Setting Metric
-          MetricType::Pointer metric = MetricType::New();
-          metric->SetqValue(qValue);
-          registration->SetMetric( metric  );
+  registration->SetFixedImage(    fixedImageReader->GetOutput()    );
+  registration->SetMovingImage(   movingImageReader->GetOutput()   );
 
-          //  The metric requires the user to specify the number of bins
-          //  used to compute the entropy. In a typical application, 50 histogram bins
-          //  are sufficient.
+  // Cinfiguring the optimizer
 
-          unsigned int numberOfBins = 24;
+  optimizer->SetLearningRate( 8.00 );
+  optimizer->SetMinimumStepLength( 0.0001 );
+  optimizer->SetNumberOfIterations( 200 );
+  optimizer->ReturnBestParametersAndValueOn();
+  optimizer->SetGradientMagnitudeTolerance(0.00001);
 
-          if( argc > 3 )
-            {
-            numberOfBins = atoi( argv[3] );
-            }
+  optimizer->SetRelaxationFactor( 0.8 );
 
-          metric->SetNumberOfHistogramBins( numberOfBins );
+  // Create the Command observer and register it with the optimizer.
+  //
+  CommandIterationUpdate::Pointer observer = CommandIterationUpdate::New();
+  optimizer->AddObserver( itk::IterationEvent(), observer );
 
-          metric->SetUseMovingImageGradientFilter( false );
-          metric->SetUseFixedImageGradientFilter( false );
+  // One level registration process without shrinking and smoothing.
+  //
+  const unsigned int numberOfLevels = 1;
 
-          // Using the whole image in the Mutual information calculation
-          metric->SetUseSampledPointSet( false );
+  RegistrationType::ShrinkFactorsArrayType shrinkFactorsPerLevel;
+  shrinkFactorsPerLevel.SetSize( 1 );
+  shrinkFactorsPerLevel[0] = 1;
 
-          registration->SetFixedImage(    fixedImageReader->GetOutput()    );
-          registration->SetMovingImage(   movingImageReader->GetOutput()   );
+  RegistrationType::SmoothingSigmasArrayType smoothingSigmasPerLevel;
+  smoothingSigmasPerLevel.SetSize( 1 );
+  smoothingSigmasPerLevel[0] = 0;
 
+  registration->SetNumberOfLevels ( numberOfLevels );
+  registration->SetSmoothingSigmasPerLevel( smoothingSigmasPerLevel );
+  registration->SetShrinkFactorsPerLevel( shrinkFactorsPerLevel );
 
-          // Cinfiguring the optimizer
+  try
+    {
+    registration->Update();
+    std::cout << "Optimizer stop condition: "
+              << registration->GetOptimizer()->GetStopConditionDescription()
+              << std::endl;
+    }
+  catch( itk::ExceptionObject & err )
+    {
+    std::cerr << "ExceptionObject caught !" << std::endl;
+    std::cerr << err << std::endl;
+    return EXIT_FAILURE;
+    }
 
-          optimizer->SetLearningRate( 8.00 );
-          optimizer->SetMinimumStepLength( 0.0001 );
-          optimizer->SetNumberOfIterations( 200 );
-          optimizer->ReturnBestParametersAndValueOn();
-          optimizer->SetGradientMagnitudeTolerance(0.00001);
+  TransformType::ParametersType finalParameters =
+                            registration->GetOutput()->Get()->GetParameters();
 
-          optimizer->SetRelaxationFactor( 0.8 );
+  // double TranslationAlongX = finalParameters[0];
+  // double TranslationAlongY = finalParameters[1];
 
-          // Create the Command observer and register it with the optimizer.
-          //
-          CommandIterationUpdate::Pointer observer = CommandIterationUpdate::New();
-          optimizer->AddObserver( itk::IterationEvent(), observer );
+  unsigned long numberOfIterations = optimizer->GetCurrentIteration();
 
-          // One level registration process without shrinking and smoothing.
-          //
-          const unsigned int numberOfLevels = 1;
+  double bestValue = optimizer->GetValue();
 
-          RegistrationType::ShrinkFactorsArrayType shrinkFactorsPerLevel;
-          shrinkFactorsPerLevel.SetSize( 1 );
-          shrinkFactorsPerLevel[0] = 1;
+  std::cout << std::endl;
+  std::cout << " Result         = "   << std::endl;
+  std::cout << " qValue         = "   << qValue << std::endl;
+  std::cout << " Iterations     = "   << numberOfIterations << std::endl;
+  std::cout << " Metric value   = "   << bestValue << std::endl;
+  //std::cout << " Relative Error = "   << meanRelativeError << std::endl;
 
-          RegistrationType::SmoothingSigmasArrayType smoothingSigmasPerLevel;
-          smoothingSigmasPerLevel.SetSize( 1 );
-          smoothingSigmasPerLevel[0] = 0;
+  std::cout << std::endl;
 
-          registration->SetNumberOfLevels ( numberOfLevels );
-          registration->SetSmoothingSigmasPerLevel( smoothingSigmasPerLevel );
-          registration->SetShrinkFactorsPerLevel( shrinkFactorsPerLevel );
-
-          /*
-          RegistrationType::MetricSamplingStrategyType  samplingStrategy  =
-            RegistrationType::RANDOM;
-
-          double samplingPercentage = 0.20;
-
-          // In ITKv4, a single virtual domain or spatial sample point set is used for the
-          // all iterations of the registration process. The use of a single sample set results
-          // in a smooth cost function that can improve the functionality of
-          // the optimizer.
-          //
-          // The spatial point set is pseudo randomly generated. For
-          // reproducible results an integer seed should set.
-
-
-          registration->SetMetricSamplingStrategy( samplingStrategy );
-          registration->SetMetricSamplingPercentage( samplingPercentage );
-
-
-          registration->MetricSamplingReinitializeSeed( 121213 );
-          */
-
-          auto begin = std::chrono::high_resolution_clock::now();
-          try
-            {
-            registration->Update();
-            std::cout << "Optimizer stop condition: "
-                      << registration->GetOptimizer()->GetStopConditionDescription()
-                      << std::endl;
-            }
-          catch( itk::ExceptionObject & err )
-            {
-            std::cerr << "ExceptionObject caught !" << std::endl;
-            std::cerr << err << std::endl;
-            return EXIT_FAILURE;
-            }
-          auto end = std::chrono::high_resolution_clock::now();
-
-
-          TransformType::ParametersType finalParameters =
-                                    registration->GetOutput()->Get()->GetParameters();
-
-          double TranslationAlongX = finalParameters[0];
-          double TranslationAlongY = finalParameters[1];
-
-          unsigned long numberOfIterations = optimizer->GetCurrentIteration();
-
-          double bestValue = optimizer->GetValue();
-
-          double elapsedTime = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
-
-          std::cout << std::endl;
-          std::cout << " Result         = "   << std::endl;
-          std::cout << " qValue         = "   << qValue <<" Execution: "<< i << std::endl;
-          std::cout << " Iterations     = "   << numberOfIterations << std::endl;
-          std::cout << " Metric value   = "   << bestValue << std::endl;
-          std::cout << " Elapsed Time   = "   << elapsedTime << "[ms]" << std::endl;
-          //std::cout << " Relative Error = "   << meanRelativeError << std::endl;
-
-          /* Catching execution parameter for further evaluations
-
-          meanMetricValue += bestValue;
-          meanElapsedTime += elapsedTime;
-          meanNumberOfIterations += numberOfIterations;
-
-          // Calculate the relative error considering the expected values for x and y components
-
-          meanRelativeError += std::abs((13.0 - TranslationAlongX)/13.0) + std::abs((17.0 - TranslationAlongY)/17.0);
-
-          // Destrying smart pointers to clean up processing memory
-
-          optimizer.~SmartPointer();
-          observer.~SmartPointer();
-          registration.~SmartPointer();
-          metric.~SmartPointer();
-          */
-
-        } // End of the average loop
-
-      // Storing Average Results
-
-      //meanElapsedTime = meanElapsedTime/x_times;
-      //meanMetricValue = meanMetricValue/x_times;
-      //meanNumberOfIterations = meanNumberOfIterations/x_times;
-      //meanRelativeError = meanRelativeError/x_times;
-
-      // Print out results
-      //
-
-      std::cout << std::endl;
-
-      //myfile <<qValue<<","<<meanElapsedTime<<","<<meanNumberOfIterations<<","<<meanMetricValue<<","<<meanRelativeError<< std::endl;
-
-  } // End of q-value loop
+  //myfile <<qValue<<","<<meanElapsedTime<<","<<meanNumberOfIterations<<","<<meanMetricValue<<","<<meanRelativeError<< std::endl;
 
   myfile.close();
 

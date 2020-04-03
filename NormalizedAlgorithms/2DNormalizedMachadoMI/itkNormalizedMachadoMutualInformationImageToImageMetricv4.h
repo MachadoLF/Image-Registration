@@ -33,7 +33,7 @@ namespace itk
 /** \class NormalizedMachadoMutualInformationImageToImageMetricv4
  *
  * \brief Computes the mutual information between two images to be
- * registered using the method of NormalizedMachado et al.
+ * registered using the method of Machado et al.
  *
  * NormalizedMachadoMutualInformationImageToImageMetric computes the mutual
  * information between a fixed and moving image to be registered.
@@ -41,7 +41,7 @@ namespace itk
  * This class is templated over the FixedImage type and the MovingImage
  * type.
  *
- * The calculations are based on the method of NormalizedMachado et al [1,2]
+ * The calculations are based on the method of Machado et al [1,2]
  * where the probability density distribution are estimated using
  * Parzen histograms. Since the fixed image PDF does not contribute
  * to the derivatives, it does not need to be smooth. Hence,
@@ -70,7 +70,7 @@ namespace itk
  * and threader::AfterThreadedExecution().
  *
  * The algorithm and much of the code was copied from the previous
- * NormalizedMachado MI metric, i.e. itkNormalizedMachadoMutualInformationImageToImageMetric.
+ * Machado MI metric, i.e. itkNormalizedMachadoMutualInformationImageToImageMetric.
  *
  * See
  *  NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThreader::ProcessPoint
@@ -80,10 +80,10 @@ namespace itk
  *
  * References:
  * [1] "Nonrigid multimodality image registration"
- *      D. NormalizedMachado, D. R. Haynor, H. Vesselle, T. Lewellen and W. Eubank
+ *      D. Machado, D. R. Haynor, H. Vesselle, T. Lewellen and W. Eubank
  *      Medical Imaging 2001: Image Processing, 2001, pp. 1609-1620.
  * [2] "PET-CT Image Registration in the Chest Using Free-form Deformations"
- *      D. NormalizedMachado, D. R. Haynor, H. Vesselle, T. Lewellen and W. Eubank
+ *      D. Machado, D. R. Haynor, H. Vesselle, T. Lewellen and W. Eubank
  *      IEEE Transactions in Medical Imaging. Vol.22, No.1,
         January 2003. pp.120-128.
  * [3] "Optimization of Mutual Information for MultiResolution Image
@@ -169,9 +169,6 @@ public:
     using qValueType = TInternalComputationValueType;
     itkSetMacro(qValue, qValueType);
     itkGetConstMacro(qValue, qValueType);
-
-  mutable DerivativeType * m_DerivativeResultMutualInformation;
-  mutable DerivativeType * m_DerivativeResultJointInformation;
 
   /** Typedef for the joint PDF and PDF derivatives are stored as ITK Images. */
   using JointPDFType = Image<PDFValueType, 2>;
@@ -289,7 +286,7 @@ protected:
 
   /* \class DerivativeBufferManager
    * A helper class to manage complexities of minimizing memory
-   * needs for NormalizedMachado mutual information derivative computations
+   * needs for Machado mutual information derivative computations
    * per thread.
    *
    * Thread safety note:

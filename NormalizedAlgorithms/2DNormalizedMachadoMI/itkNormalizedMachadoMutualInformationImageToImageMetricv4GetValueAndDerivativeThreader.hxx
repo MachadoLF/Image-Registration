@@ -39,51 +39,51 @@ NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThrea
   Superclass::BeforeThreadedExecution();
 
   /* Store the casted pointer to avoid dynamic casting in tight loops. */
-  this->m_NormalizedMachadoAssociate = dynamic_cast<TNormalizedMachadoMutualInformationMetric *>(this->m_Associate);
-  if (this->m_NormalizedMachadoAssociate == nullptr)
+  this->m_MachadoAssociate = dynamic_cast<TNormalizedMachadoMutualInformationMetric *>(this->m_Associate);
+  if (this->m_MachadoAssociate == nullptr)
   {
     itkExceptionMacro("Dynamic casting of associate pointer failed.");
   }
 
-  /* Porting: these next blocks of code are from NormalizedMachadoMutualImageToImageMetric::Initialize */
+  /* Porting: these next blocks of code are from MachadoMutualImageToImageMetric::Initialize */
 
   /*
    * Allocate memory for the marginal PDF and initialize values
    * to zero. The marginal PDFs are stored as std::vector.
    */
-  if (this->m_NormalizedMachadoAssociate->m_MovingImageMarginalPDF.size() != this->m_NormalizedMachadoAssociate->m_NumberOfHistogramBins)
+  if (this->m_MachadoAssociate->m_MovingImageMarginalPDF.size() != this->m_MachadoAssociate->m_NumberOfHistogramBins)
   {
-    this->m_NormalizedMachadoAssociate->m_MovingImageMarginalPDF.resize(this->m_NormalizedMachadoAssociate->m_NumberOfHistogramBins, 0.0F);
+    this->m_MachadoAssociate->m_MovingImageMarginalPDF.resize(this->m_MachadoAssociate->m_NumberOfHistogramBins, 0.0F);
   }
   else
   {
-    std::fill(this->m_NormalizedMachadoAssociate->m_MovingImageMarginalPDF.begin(),
-              this->m_NormalizedMachadoAssociate->m_MovingImageMarginalPDF.end(),
+    std::fill(this->m_MachadoAssociate->m_MovingImageMarginalPDF.begin(),
+              this->m_MachadoAssociate->m_MovingImageMarginalPDF.end(),
               PDFValueType{});
   }
 
-  const ThreadIdType NormalizedMachadoAssociateNumThreadsUsed = this->m_NormalizedMachadoAssociate->GetNumberOfWorkUnitsUsed();
+  const ThreadIdType MachadoAssociateNumThreadsUsed = this->m_MachadoAssociate->GetNumberOfWorkUnitsUsed();
   const bool         reinitializeThreaderFixedImageMarginalPDF =
-    (this->m_NormalizedMachadoAssociate->m_ThreaderFixedImageMarginalPDF.size() != NormalizedMachadoAssociateNumThreadsUsed);
+    (this->m_MachadoAssociate->m_ThreaderFixedImageMarginalPDF.size() != MachadoAssociateNumThreadsUsed);
 
   if (reinitializeThreaderFixedImageMarginalPDF)
   {
-    this->m_NormalizedMachadoAssociate->m_ThreaderFixedImageMarginalPDF.resize(
-      NormalizedMachadoAssociateNumThreadsUsed, std::vector<PDFValueType>(this->m_NormalizedMachadoAssociate->m_NumberOfHistogramBins, 0.0F));
+    this->m_MachadoAssociate->m_ThreaderFixedImageMarginalPDF.resize(
+      MachadoAssociateNumThreadsUsed, std::vector<PDFValueType>(this->m_MachadoAssociate->m_NumberOfHistogramBins, 0.0F));
   }
   else
   {
-    for (ThreadIdType threadId = 0; threadId < NormalizedMachadoAssociateNumThreadsUsed; ++threadId)
+    for (ThreadIdType threadId = 0; threadId < MachadoAssociateNumThreadsUsed; ++threadId)
     {
-      std::fill(this->m_NormalizedMachadoAssociate->m_ThreaderFixedImageMarginalPDF[threadId].begin(),
-                this->m_NormalizedMachadoAssociate->m_ThreaderFixedImageMarginalPDF[threadId].end(),
+      std::fill(this->m_MachadoAssociate->m_ThreaderFixedImageMarginalPDF[threadId].begin(),
+                this->m_MachadoAssociate->m_ThreaderFixedImageMarginalPDF[threadId].end(),
                 PDFValueType{});
     }
   }
 
   const ThreadIdType localNumberOfWorkUnitsUsed = this->GetNumberOfWorkUnitsUsed();
 
-  this->m_NormalizedMachadoAssociate->m_JointPDFSum = 0;
+  this->m_MachadoAssociate->m_JointPDFSum = 0;
 
   JointPDFRegionType jointPDFRegion;
   // For the joint PDF define a region starting from {0,0}
@@ -93,7 +93,7 @@ NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThrea
   JointPDFIndexType jointPDFIndex;
   jointPDFIndex.Fill(0);
   JointPDFSizeType jointPDFSize;
-  jointPDFSize.Fill(this->m_NormalizedMachadoAssociate->m_NumberOfHistogramBins);
+  jointPDFSize.Fill(this->m_MachadoAssociate->m_NumberOfHistogramBins);
 
   jointPDFRegion.SetIndex(jointPDFIndex);
   jointPDFRegion.SetSize(jointPDFSize);
@@ -106,13 +106,13 @@ NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThrea
    * Only recreate if size differ from last time.  If size is the same,
    * there is no need to recreate the memory
    */
-  if ((this->m_NormalizedMachadoAssociate->m_ThreaderJointPDF.size() == localNumberOfWorkUnitsUsed) &&
-      (jointPDFRegion == this->m_NormalizedMachadoAssociate->m_ThreaderJointPDF[0]->GetBufferedRegion()))
+  if ((this->m_MachadoAssociate->m_ThreaderJointPDF.size() == localNumberOfWorkUnitsUsed) &&
+      (jointPDFRegion == this->m_MachadoAssociate->m_ThreaderJointPDF[0]->GetBufferedRegion()))
   {
     for (ThreadIdType threadId = 0; threadId < localNumberOfWorkUnitsUsed; ++threadId)
     {
       // Still need to reset to zero for subsequent runs
-      this->m_NormalizedMachadoAssociate->m_ThreaderJointPDF[threadId]->FillBuffer(0.0);
+      this->m_MachadoAssociate->m_ThreaderJointPDF[threadId]->FillBuffer(0.0);
     }
   }
   else
@@ -120,63 +120,63 @@ NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThrea
     // By setting these values, the joint histogram physical locations will
     // correspond to intensity values.
     typename JointPDFType::PointType origin;
-    origin[0] = this->m_NormalizedMachadoAssociate->m_FixedImageTrueMin;
-    origin[1] = this->m_NormalizedMachadoAssociate->m_MovingImageTrueMin;
+    origin[0] = this->m_MachadoAssociate->m_FixedImageTrueMin;
+    origin[1] = this->m_MachadoAssociate->m_MovingImageTrueMin;
     typename JointPDFType::SpacingType spacing;
-    spacing[0] = this->m_NormalizedMachadoAssociate->m_FixedImageBinSize;
-    spacing[1] = this->m_NormalizedMachadoAssociate->m_MovingImageBinSize;
+    spacing[0] = this->m_MachadoAssociate->m_FixedImageBinSize;
+    spacing[1] = this->m_MachadoAssociate->m_MovingImageBinSize;
 
-    this->m_NormalizedMachadoAssociate->m_ThreaderJointPDF.resize(localNumberOfWorkUnitsUsed);
+    this->m_MachadoAssociate->m_ThreaderJointPDF.resize(localNumberOfWorkUnitsUsed);
     for (ThreadIdType threadId = 0; threadId < localNumberOfWorkUnitsUsed; ++threadId)
     {
-      this->m_NormalizedMachadoAssociate->m_ThreaderJointPDF[threadId] = JointPDFType::New();
-      this->m_NormalizedMachadoAssociate->m_ThreaderJointPDF[threadId]->SetRegions(jointPDFRegion);
-      this->m_NormalizedMachadoAssociate->m_ThreaderJointPDF[threadId]->SetOrigin(origin);
-      this->m_NormalizedMachadoAssociate->m_ThreaderJointPDF[threadId]->SetSpacing(spacing);
+      this->m_MachadoAssociate->m_ThreaderJointPDF[threadId] = JointPDFType::New();
+      this->m_MachadoAssociate->m_ThreaderJointPDF[threadId]->SetRegions(jointPDFRegion);
+      this->m_MachadoAssociate->m_ThreaderJointPDF[threadId]->SetOrigin(origin);
+      this->m_MachadoAssociate->m_ThreaderJointPDF[threadId]->SetSpacing(spacing);
       // NOTE: true = initizize to zero
-      this->m_NormalizedMachadoAssociate->m_ThreaderJointPDF[threadId]->Allocate(true);
+      this->m_MachadoAssociate->m_ThreaderJointPDF[threadId]->Allocate(true);
     }
   }
 
   //
   // Now allocate memory according to transform type
   //
-  if (!this->m_NormalizedMachadoAssociate->GetComputeDerivative())
+  if (!this->m_MachadoAssociate->GetComputeDerivative())
   {
     // We only need these if we're computing derivatives.
-    this->m_NormalizedMachadoAssociate->m_PRatioArray.clear();
-    this->m_NormalizedMachadoAssociate->m_JointPdfIndex1DArray.clear();
-    this->m_NormalizedMachadoAssociate->m_LocalDerivativeByParzenBin.clear();
-    this->m_NormalizedMachadoAssociate->m_JointPDFDerivatives = nullptr;
+    this->m_MachadoAssociate->m_PRatioArray.clear();
+    this->m_MachadoAssociate->m_JointPdfIndex1DArray.clear();
+    this->m_MachadoAssociate->m_LocalDerivativeByParzenBin.clear();
+    this->m_MachadoAssociate->m_JointPDFDerivatives = nullptr;
   }
 
-  if (this->m_NormalizedMachadoAssociate->GetComputeDerivative() && this->m_NormalizedMachadoAssociate->HasLocalSupport())
+  if (this->m_MachadoAssociate->GetComputeDerivative() && this->m_MachadoAssociate->HasLocalSupport())
   {
-    this->m_NormalizedMachadoAssociate->m_PRatioArray.assign(
-      this->m_NormalizedMachadoAssociate->m_NumberOfHistogramBins * this->m_NormalizedMachadoAssociate->m_NumberOfHistogramBins, 0.0);
-    this->m_NormalizedMachadoAssociate->m_JointPdfIndex1DArray.assign(this->m_NormalizedMachadoAssociate->GetNumberOfParameters(), 0);
+    this->m_MachadoAssociate->m_PRatioArray.assign(
+      this->m_MachadoAssociate->m_NumberOfHistogramBins * this->m_MachadoAssociate->m_NumberOfHistogramBins, 0.0);
+    this->m_MachadoAssociate->m_JointPdfIndex1DArray.assign(this->m_MachadoAssociate->GetNumberOfParameters(), 0);
     // Don't need this with local-support
-    this->m_NormalizedMachadoAssociate->m_JointPDFDerivatives = nullptr;
+    this->m_MachadoAssociate->m_JointPDFDerivatives = nullptr;
     // This always has four entries because the parzen window size is fixed.
-    this->m_NormalizedMachadoAssociate->m_LocalDerivativeByParzenBin.resize(4);
+    this->m_MachadoAssociate->m_LocalDerivativeByParzenBin.resize(4);
     // The first container cannot point to the existing derivative result
     // object
     // for efficiency, because of multi-variate metric.
     for (SizeValueType n = 0; n < 4; ++n)
     {
-      this->m_NormalizedMachadoAssociate->m_LocalDerivativeByParzenBin[n].SetSize(
-        this->m_NormalizedMachadoAssociate->GetNumberOfParameters());
+      this->m_MachadoAssociate->m_LocalDerivativeByParzenBin[n].SetSize(
+        this->m_MachadoAssociate->GetNumberOfParameters());
       // Initialize to zero because we accumulate, and so skipped points will
       // behave properly
-      this->m_NormalizedMachadoAssociate->m_LocalDerivativeByParzenBin[n].Fill(NumericTraits<DerivativeValueType>::ZeroValue());
+      this->m_MachadoAssociate->m_LocalDerivativeByParzenBin[n].Fill(NumericTraits<DerivativeValueType>::ZeroValue());
     }
   }
-  if (this->m_NormalizedMachadoAssociate->GetComputeDerivative() && !this->m_NormalizedMachadoAssociate->HasLocalSupport())
+  if (this->m_MachadoAssociate->GetComputeDerivative() && !this->m_MachadoAssociate->HasLocalSupport())
   {
     // Don't need this with global transforms
-    this->m_NormalizedMachadoAssociate->m_PRatioArray.clear();
-    this->m_NormalizedMachadoAssociate->m_JointPdfIndex1DArray.clear();
-    this->m_NormalizedMachadoAssociate->m_LocalDerivativeByParzenBin.clear();
+    this->m_MachadoAssociate->m_PRatioArray.clear();
+    this->m_MachadoAssociate->m_JointPdfIndex1DArray.clear();
+    this->m_MachadoAssociate->m_LocalDerivativeByParzenBin.clear();
 
     JointPDFDerivativesRegionType jointPDFDerivativesRegion;
     {
@@ -191,45 +191,45 @@ NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThrea
       jointPDFDerivativesIndex.Fill(0);
       JointPDFDerivativesSizeType jointPDFDerivativesSize;
       jointPDFDerivativesSize[0] = this->GetCachedNumberOfLocalParameters();
-      jointPDFDerivativesSize[1] = this->m_NormalizedMachadoAssociate->m_NumberOfHistogramBins;
-      jointPDFDerivativesSize[2] = this->m_NormalizedMachadoAssociate->m_NumberOfHistogramBins;
+      jointPDFDerivativesSize[1] = this->m_MachadoAssociate->m_NumberOfHistogramBins;
+      jointPDFDerivativesSize[2] = this->m_MachadoAssociate->m_NumberOfHistogramBins;
 
       jointPDFDerivativesRegion.SetIndex(jointPDFDerivativesIndex);
       jointPDFDerivativesRegion.SetSize(jointPDFDerivativesSize);
     }
 
     // Set the regions and allocate
-    if (this->m_NormalizedMachadoAssociate->m_JointPDFDerivatives.IsNull() ||
-        (this->m_NormalizedMachadoAssociate->m_JointPDFDerivatives->GetBufferedRegion() != jointPDFDerivativesRegion))
+    if (this->m_MachadoAssociate->m_JointPDFDerivatives.IsNull() ||
+        (this->m_MachadoAssociate->m_JointPDFDerivatives->GetBufferedRegion() != jointPDFDerivativesRegion))
     {
-      this->m_NormalizedMachadoAssociate->m_JointPDFDerivatives = JointPDFDerivativesType::New();
-      this->m_NormalizedMachadoAssociate->m_JointPDFDerivatives->SetRegions(jointPDFDerivativesRegion);
-      this->m_NormalizedMachadoAssociate->m_JointPDFDerivatives->Allocate(true);
+      this->m_MachadoAssociate->m_JointPDFDerivatives = JointPDFDerivativesType::New();
+      this->m_MachadoAssociate->m_JointPDFDerivatives->SetRegions(jointPDFDerivativesRegion);
+      this->m_MachadoAssociate->m_JointPDFDerivatives->Allocate(true);
     }
     else
     {
       // Initialize to zero for accumulation
-      this->m_NormalizedMachadoAssociate->m_JointPDFDerivatives->FillBuffer(0.0F);
+      this->m_MachadoAssociate->m_JointPDFDerivatives->FillBuffer(0.0F);
     }
-    if ((this->m_NormalizedMachadoAssociate->m_ThreaderDerivativeManager.size() != localNumberOfWorkUnitsUsed))
+    if ((this->m_MachadoAssociate->m_ThreaderDerivativeManager.size() != localNumberOfWorkUnitsUsed))
     {
-      this->m_NormalizedMachadoAssociate->m_ThreaderDerivativeManager.resize(localNumberOfWorkUnitsUsed);
+      this->m_MachadoAssociate->m_ThreaderDerivativeManager.resize(localNumberOfWorkUnitsUsed);
     }
     for (ThreadIdType threadId = 0; threadId < localNumberOfWorkUnitsUsed; ++threadId)
     {
-      this->m_NormalizedMachadoAssociate->m_ThreaderDerivativeManager[threadId].Initialize(
+      this->m_MachadoAssociate->m_ThreaderDerivativeManager[threadId].Initialize(
         // A heuristic that assumues memory for 2x size of
         // m_JointPDFDerivati efficient and easy to make, so
         // split it accross all the threads.  A work unit of at least 400 is needed
         // when the thread size approaches the number of histograms so that the
         // there is enough work to be done between thread lockings.
         std::max<size_t>(500,
-                         this->m_NormalizedMachadoAssociate->m_NumberOfHistogramBins *
-                           this->m_NormalizedMachadoAssociate->m_NumberOfHistogramBins / localNumberOfWorkUnitsUsed),
+                         this->m_MachadoAssociate->m_NumberOfHistogramBins *
+                           this->m_MachadoAssociate->m_NumberOfHistogramBins / localNumberOfWorkUnitsUsed),
         this->GetCachedNumberOfLocalParameters(),
         // Need address of the lock
-        &this->m_NormalizedMachadoAssociate->m_JointPDFDerivativesLock,
-        this->m_NormalizedMachadoAssociate->m_JointPDFDerivatives);
+        &this->m_MachadoAssociate->m_JointPDFDerivativesLock,
+        this->m_MachadoAssociate->m_JointPDFDerivatives);
     }
   }
 }
@@ -251,24 +251,24 @@ NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThrea
                                                 DerivativeType &,
                                                 const ThreadIdType threadId) const
 {
-  const bool doComputeDerivative = this->m_NormalizedMachadoAssociate->GetComputeDerivative();
+  const bool doComputeDerivative = this->m_MachadoAssociate->GetComputeDerivative();
   /**
    * Compute this sample's contribution to the marginal
    *   and joint distributions.
    *
    */
-  if (movingImageValue < this->m_NormalizedMachadoAssociate->m_MovingImageTrueMin)
+  if (movingImageValue < this->m_MachadoAssociate->m_MovingImageTrueMin)
   {
     return false;
   }
-  else if (movingImageValue > this->m_NormalizedMachadoAssociate->m_MovingImageTrueMax)
+  else if (movingImageValue > this->m_MachadoAssociate->m_MovingImageTrueMax)
   {
     return false;
   }
 
-  // Determine parzen window arguments (see eqn 6 of NormalizedMachado paper [2]).
-  const PDFValueType movingImageParzenWindowTerm = movingImageValue / this->m_NormalizedMachadoAssociate->m_MovingImageBinSize -
-                                                   this->m_NormalizedMachadoAssociate->m_MovingImageNormalizedMin;
+  // Determine parzen window arguments (see eqn 6 of Machado paper [2]).
+  const PDFValueType movingImageParzenWindowTerm = movingImageValue / this->m_MachadoAssociate->m_MovingImageBinSize -
+                                                   this->m_MachadoAssociate->m_MovingImageNormalizedMin;
   auto movingImageParzenWindowIndex = static_cast<OffsetValueType>(movingImageParzenWindowTerm);
 
   // Make sure the extreme values are in valid bins
@@ -278,7 +278,7 @@ NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThrea
   }
   else
   {
-    const OffsetValueType nindex = static_cast<OffsetValueType>(this->m_NormalizedMachadoAssociate->m_NumberOfHistogramBins) - 3;
+    const OffsetValueType nindex = static_cast<OffsetValueType>(this->m_MachadoAssociate->m_NumberOfHistogramBins) - 3;
     if (movingImageParzenWindowIndex > nindex)
     {
       movingImageParzenWindowIndex = nindex;
@@ -289,12 +289,12 @@ NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThrea
   const OffsetValueType pdfMovingIndexMax = static_cast<OffsetValueType>(movingImageParzenWindowIndex) + 2;
 
   const OffsetValueType fixedImageParzenWindowIndex =
-    this->m_NormalizedMachadoAssociate->ComputeSingleFixedImageParzenWindowIndex(fixedImageValue);
+    this->m_MachadoAssociate->ComputeSingleFixedImageParzenWindowIndex(fixedImageValue);
 
   // Since a zero-order BSpline (box car) kernel is used for
   // the fixed image marginal pdf, we need only increment the
   // fixedImageParzenWindowIndex by value of 1.0.
-  this->m_NormalizedMachadoAssociate->m_ThreaderFixedImageMarginalPDF[threadId][fixedImageParzenWindowIndex] += 1;
+  this->m_MachadoAssociate->m_ThreaderFixedImageMarginalPDF[threadId][fixedImageParzenWindowIndex] += 1;
 
   /**
    * The region of support of the parzen window determines which bins
@@ -311,25 +311,25 @@ NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThrea
     static_cast<PDFValueType>(pdfMovingIndex) - static_cast<PDFValueType>(movingImageParzenWindowTerm);
 
   // Pointer to affected bin to be updated
-  JointPDFValueType * pdfPtr = this->m_NormalizedMachadoAssociate->m_ThreaderJointPDF[threadId]->GetBufferPointer() +
-                               (fixedImageParzenWindowIndex * this->m_NormalizedMachadoAssociate->m_NumberOfHistogramBins) +
+  JointPDFValueType * pdfPtr = this->m_MachadoAssociate->m_ThreaderJointPDF[threadId]->GetBufferPointer() +
+                               (fixedImageParzenWindowIndex * this->m_MachadoAssociate->m_NumberOfHistogramBins) +
                                pdfMovingIndex;
 
   OffsetValueType localDerivativeOffset = 0;
   // Store the pdf indices for this point.
   // Just store the starting pdfMovingIndex and we'll iterate later
   // over the next four to collect results.
-  if (doComputeDerivative && (this->m_NormalizedMachadoAssociate->HasLocalSupport()))
+  if (doComputeDerivative && (this->m_MachadoAssociate->HasLocalSupport()))
   {
     const OffsetValueType jointPdfIndex1D =
-      pdfMovingIndex + (fixedImageParzenWindowIndex * this->m_NormalizedMachadoAssociate->m_NumberOfHistogramBins);
-    localDerivativeOffset = this->m_NormalizedMachadoAssociate->ComputeParameterOffsetFromVirtualIndex(
+      pdfMovingIndex + (fixedImageParzenWindowIndex * this->m_MachadoAssociate->m_NumberOfHistogramBins);
+    localDerivativeOffset = this->m_MachadoAssociate->ComputeParameterOffsetFromVirtualIndex(
       virtualIndex, this->GetCachedNumberOfLocalParameters());
     for (NumberOfParametersType i = 0, numLocalParameters = this->GetCachedNumberOfLocalParameters();
          i < numLocalParameters;
          ++i)
     {
-      this->m_NormalizedMachadoAssociate->m_JointPdfIndex1DArray[localDerivativeOffset + i] = jointPdfIndex1D;
+      this->m_MachadoAssociate->m_JointPdfIndex1DArray[localDerivativeOffset + i] = jointPdfIndex1D;
     }
   }
 
@@ -340,25 +340,25 @@ NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThrea
   {
     JacobianReferenceType jacobianPositional =
       this->m_GetValueAndDerivativePerThreadVariables[threadId].MovingTransformJacobianPositional;
-    this->m_NormalizedMachadoAssociate->GetMovingTransform()->ComputeJacobianWithRespectToParametersCachedTemporaries(
+    this->m_MachadoAssociate->GetMovingTransform()->ComputeJacobianWithRespectToParametersCachedTemporaries(
       virtualPoint, jacobian, jacobianPositional);
   }
 
   SizeValueType movingParzenBin = 0;
 
-  const bool transformIsDisplacement = this->m_NormalizedMachadoAssociate->m_MovingTransform->GetTransformCategory() ==
+  const bool transformIsDisplacement = this->m_MachadoAssociate->m_MovingTransform->GetTransformCategory() ==
                                        MovingTransformType::TransformCategoryType::DisplacementField;
   while (pdfMovingIndex <= pdfMovingIndexMax)
   {
     const auto val =
-      static_cast<PDFValueType>(this->m_NormalizedMachadoAssociate->m_CubicBSplineKernel->Evaluate(movingImageParzenWindowArg));
+      static_cast<PDFValueType>(this->m_MachadoAssociate->m_CubicBSplineKernel->Evaluate(movingImageParzenWindowArg));
     *(pdfPtr++) += val;
 
     if (doComputeDerivative)
     {
       // Compute the cubicBSplineDerivative for later repeated use.
       const PDFValueType cubicBSplineDerivativeValue =
-        this->m_NormalizedMachadoAssociate->m_CubicBSplineDerivativeKernel->Evaluate(movingImageParzenWindowArg);
+        this->m_MachadoAssociate->m_CubicBSplineDerivativeKernel->Evaluate(movingImageParzenWindowArg);
 
 
       if (transformIsDisplacement)
@@ -367,7 +367,7 @@ NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThrea
         // Not used with global support transforms.
         // ptr to where the derivative result should go, for efficiency
         DerivativeValueType * localSupportDerivativeResultPtr =
-          &(this->m_NormalizedMachadoAssociate->m_LocalDerivativeByParzenBin[movingParzenBin][localDerivativeOffset]);
+          &(this->m_MachadoAssociate->m_LocalDerivativeByParzenBin[movingParzenBin][localDerivativeOffset]);
         // Compute PDF derivative contribution.
 
         this->ComputePDFDerivativesLocalSupportTransform(
@@ -377,16 +377,16 @@ NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThrea
       {
         // Update bins in the PDF derivatives for the current intensity pair
         const OffsetValueType ThisIndexOffset =
-          (fixedImageParzenWindowIndex * this->m_NormalizedMachadoAssociate->m_JointPDFDerivatives->GetOffsetTable()[2]) +
-          (pdfMovingIndex * this->m_NormalizedMachadoAssociate->m_JointPDFDerivatives->GetOffsetTable()[1]);
+          (fixedImageParzenWindowIndex * this->m_MachadoAssociate->m_JointPDFDerivatives->GetOffsetTable()[2]) +
+          (pdfMovingIndex * this->m_MachadoAssociate->m_JointPDFDerivatives->GetOffsetTable()[1]);
 
         PDFValueType * derivativeContributionPtr =
-          this->m_NormalizedMachadoAssociate->m_ThreaderDerivativeManager[threadId].GetNextElementAndAddOffset(ThisIndexOffset);
+          this->m_MachadoAssociate->m_ThreaderDerivativeManager[threadId].GetNextElementAndAddOffset(ThisIndexOffset);
         for (NumberOfParametersType mu = 0, maxElement = this->GetCachedNumberOfLocalParameters(); mu < maxElement;
              ++mu)
         {
           PDFValueType innerProduct = 0.0;
-          for (SizeValueType dim = 0, lastDim = this->m_NormalizedMachadoAssociate->MovingImageDimension; dim < lastDim; ++dim)
+          for (SizeValueType dim = 0, lastDim = this->m_MachadoAssociate->MovingImageDimension; dim < lastDim; ++dim)
           {
             innerProduct += jacobian[dim][mu] * movingImageGradient[dim];
           }
@@ -394,7 +394,7 @@ NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThrea
           *(derivativeContributionPtr) = innerProduct * cubicBSplineDerivativeValue;
           ++derivativeContributionPtr;
         }
-        this->m_NormalizedMachadoAssociate->m_ThreaderDerivativeManager[threadId].CheckAndReduceIfNecessary();
+        this->m_MachadoAssociate->m_ThreaderDerivativeManager[threadId].CheckAndReduceIfNecessary();
       }
     }
 
@@ -423,7 +423,7 @@ NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThrea
   for (NumberOfParametersType mu = 0, maxElement = this->GetCachedNumberOfLocalParameters(); mu < maxElement; ++mu)
   {
     PDFValueType innerProduct = 0.0;
-    for (SizeValueType dim = 0, lastDim = this->m_NormalizedMachadoAssociate->MovingImageDimension; dim < lastDim; ++dim)
+    for (SizeValueType dim = 0, lastDim = this->m_MachadoAssociate->MovingImageDimension; dim < lastDim; ++dim)
     {
       innerProduct += jacobian[dim][mu] * movingImageGradient[dim];
     }
@@ -445,33 +445,33 @@ NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThrea
   /* Store the number of valid points in the enclosing class
    * m_NumberOfValidPoints by collecting the valid points per thread.
    * We do this here because we're skipping Superclass::AfterThreadedExecution*/
-  this->m_NormalizedMachadoAssociate->m_NumberOfValidPoints = NumericTraits<SizeValueType>::ZeroValue();
+  this->m_MachadoAssociate->m_NumberOfValidPoints = NumericTraits<SizeValueType>::ZeroValue();
   for (ThreadIdType threadId = 0; threadId < localNumberOfWorkUnitsUsed; ++threadId)
   {
-    this->m_NormalizedMachadoAssociate->m_NumberOfValidPoints +=
+    this->m_MachadoAssociate->m_NumberOfValidPoints +=
       this->m_GetValueAndDerivativePerThreadVariables[threadId].NumberOfValidPoints;
   }
 
   /* Porting: This code is from
    * NormalizedMachadoMutualInformationImageToImageMetric::GetValueAndDerivativeThreadPostProcess */
   /* Post-processing that is common the GetValue and GetValueAndDerivative */
-  this->m_NormalizedMachadoAssociate->GetValueCommonAfterThreadedExecution();
+  this->m_MachadoAssociate->GetValueCommonAfterThreadedExecution();
 
-  if (this->m_NormalizedMachadoAssociate->GetComputeDerivative() && (!this->m_NormalizedMachadoAssociate->HasLocalSupport()))
+  if (this->m_MachadoAssociate->GetComputeDerivative() && (!this->m_MachadoAssociate->HasLocalSupport()))
   {
     // This entire block of code is used to accumulate the per-thread buffers
     // into 1 thread.
     // For this thread, how many histogram elements are there?
     const NumberOfParametersType rowSize =
-      this->GetCachedNumberOfLocalParameters() * this->m_NormalizedMachadoAssociate->m_NumberOfHistogramBins;
-    const SizeValueType histogramTotalElementsSize = rowSize * this->m_NormalizedMachadoAssociate->m_NumberOfHistogramBins;
+      this->GetCachedNumberOfLocalParameters() * this->m_MachadoAssociate->m_NumberOfHistogramBins;
+    const SizeValueType histogramTotalElementsSize = rowSize * this->m_MachadoAssociate->m_NumberOfHistogramBins;
 
     // NOTE:  Negative 1 so that accumulators can all be positive accumulators
     const PDFValueType nFactor =
-      -1.0 / (this->m_NormalizedMachadoAssociate->m_MovingImageBinSize * this->m_NormalizedMachadoAssociate->GetNumberOfValidPoints());
+      -1.0 / (this->m_MachadoAssociate->m_MovingImageBinSize * this->m_MachadoAssociate->GetNumberOfValidPoints());
 
     JointPDFDerivativesValueType * const accumulatorPdfDPtrStart =
-      this->m_NormalizedMachadoAssociate->m_JointPDFDerivatives->GetBufferPointer();
+      this->m_MachadoAssociate->m_JointPDFDerivatives->GetBufferPointer();
     JointPDFDerivativesValueType *             accumulatorPdfDPtr = accumulatorPdfDPtrStart;
     JointPDFDerivativesValueType const * const tempThreadPdfDPtrEnd =
       accumulatorPdfDPtrStart + histogramTotalElementsSize;
@@ -483,7 +483,7 @@ NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThrea
 
   // Collect and compute results.
   // Value and derivative are stored in member vars.
-  this->m_NormalizedMachadoAssociate->ComputeResults();
+  this->m_MachadoAssociate->ComputeResults();
 }
 
 } // end namespace itk

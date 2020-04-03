@@ -273,7 +273,7 @@ NormalizedMachadoMutualInformationImageToImageMetricv4<TFixedImage,
   itkDebugMacro("MovingImageBinSize; " << this->m_MovingImageBinSize);
 
   /* Porting note: the rest of the initialization that was performed
-   * in NormalizedMachadoMutualImageToImageMetric::Initialize
+   * in MachadoMutualImageToImageMetric::Initialize
    * is now performed in the threader BeforeThreadedExecution method */
 }
 
@@ -361,9 +361,32 @@ NormalizedMachadoMutualInformationImageToImageMetricv4<TFixedImage,
   // Setup pointer to point to the first bin
   JointPDFValueType * jointPDFPtr = this->m_ThreaderJointPDF[0]->GetBufferPointer();
 
-  // Initialize sum to zero
-  PDFValueType mutualInfoSum = 0.0;
-  PDFValueType jointInfoSum = 0.0;
+  // Calculating A and B summations over the marginal and joint PDF bins
+  PDFValueType sumA = 0.0;
+  PDFValueType sumB = 0.0;
+  {
+      static constexpr PDFValueType closeToZero = std::numeric_limits<PDFValueType>::epsilon();
+      for (unsigned int fixedIndex = 0; fixedIndex < this->m_NumberOfHistogramBins; ++fixedIndex)
+      {
+          const PDFValueType fixedImagePDFValue = this->m_ThreaderFixedImageMarginalPDF[0][fixedIndex];
+          for (unsigned int movingIndex = 0; movingIndex < this->m_NumberOfHistogramBins; ++movingIndex, jointPDFPtr++)
+          {
+              const PDFValueType movingImagePDFValue = this->m_MovingImageMarginalPDF[movingIndex];
+              const PDFValueType jointPDFValue = *(jointPDFPtr);
+
+              // check for non-zero bin contribution
+              if (!(jointPDFValue > closeToZero && movingImagePDFValue > closeToZero && fixedImagePDFValue > closeToZero))
+              {
+                  continue;
+              }
+
+              sumA += std::pow(jointPDFValue,this->m_qValue);
+              sumB += std::pow(jointPDFValue,this->m_qValue) / std::pow((fixedImagePDFValue * movingImagePDFValue),(this->m_qValue - 1.0));
+          }
+      }
+  }
+
+  // Calculating the derivatives considering the A and B summations over the marginal and joint PDF bins
 
   const PDFValueType nFactor = 1.0 / (this->m_MovingImageBinSize * this->GetNumberOfValidPoints());
 
@@ -383,9 +406,6 @@ NormalizedMachadoMutualInformationImageToImageMetricv4<TFixedImage,
       }
       const PDFValueType pRatio = std::log(jointPDFValue / movingImagePDFValue);
 
-      mutualInfoSum += std::pow(jointPDFValue,this->m_qValue) / std::pow((fixedImagePDFValue * movingImagePDFValue),(this->m_qValue-1.0));
-      jointInfoSum += std::pow(jointPDFValue,this->m_qValue);
-
       if (this->GetComputeDerivative())
       {
         if (!this->HasLocalSupport())
@@ -400,11 +420,12 @@ NormalizedMachadoMutualInformationImageToImageMetricv4<TFixedImage,
                parameter < lastParameter;
                ++parameter, derivPtr++)
           {
-            // Summing derivatives component for Normalized Derivative Calculation
-            const PDFValueType qpRatio = std::pow((jointPDFValue / (fixedImagePDFValue * movingImagePDFValue)),(this->m_qValue-1.0));
-            (*(this->m_DerivativeResultMutualInformation))[parameter] += (*derivPtr) * qpRatio;
-            (*(this->m_DerivativeResultJointInformation))[parameter] += (*derivPtr) * std::pow(jointPDFValue,(this->m_qValue-1.0));
-            
+            // Ref: Normalized Tsallis Mutual Information Metric Derivative
+            (*(this->m_DerivativeResult))[parameter] +=
+                     (- this->m_qValue / std::pow((sumA - 1.0),2))
+                     * (std::pow(jointPDFValue,(this->m_qValue - 1))
+                     * (*derivPtr) * ( std::pow(fixedImagePDFValue * movingImagePDFValue,(1 - this->m_qValue))
+                     * (1.0 - sumA) + sumB + 1.0));
           } // end for-loop over parameters
         }
         else
@@ -417,20 +438,6 @@ NormalizedMachadoMutualInformationImageToImageMetricv4<TFixedImage,
       }
     } // end for-loop over moving index
   }   // end for-loop over fixed index
-  
-  // Finishing total calculation of derivatives. 
-  // Normalized TMI derivative according ITK
-  for (unsigned int parameter = 0, lastParameter = this->GetNumberOfLocalParameters();
-        parameter < lastParameter;
-        ++parameter)
-  {
-    // Ref: eqn 23 of Thevenaz & Unser paper [3] applied to normalized case. 
-    (*(this->m_DerivativeResult))[parameter] = 
-      ((-this->m_qValue) * (*(this->m_DerivativeResultMutualInformation))[parameter] * (1.0 - jointInfoSum)
-      + this->m_qValue * (*(this->m_DerivativeResultJointInformation))[parameter] * (1.0 - mutualInfoSum)) /
-      (1.0 / (1.0 - this->m_qValue)) * std::pow((1.0 - jointInfoSum),2); 
-  } // end for-loop over parameters
-
 
   // Apply the pRatio and sum the per-window derivative
   // contributions, in the local-support case.
@@ -454,9 +461,9 @@ NormalizedMachadoMutualInformationImageToImageMetricv4<TFixedImage,
   }
 
   // in ITKv4, metrics always minimize
-  // Normalized TMI calculation according ITK 
-  this->m_Value = static_cast<MeasureType>(-1.0 *(1.0 + (mutualInfoSum - 1.0)/(1.0 - jointInfoSum)));
+  this->m_Value = static_cast<MeasureType>(-1.0 * ((1.0 - sumB)/(sumA - 1.0)));
 }
+
 
 template <typename TFixedImage,
           typename TMovingImage,
@@ -533,7 +540,7 @@ NormalizedMachadoMutualInformationImageToImageMetricv4<
   // during metric Initializaiton. But with the Metricv4 design, it's
   // more difficult to do so and retrieve as needed in an efficient way.
 
-  // Determine parzen window arguments (see eqn 6 of NormalizedMachado paper [2]).
+  // Determine parzen window arguments (see eqn 6 of Machado paper [2]).
   const PDFValueType windowTerm =
     static_cast<PDFValueType>(value) / this->m_FixedImageBinSize - this->m_FixedImageNormalizedMin;
   auto pindex = static_cast<OffsetValueType>(windowTerm);

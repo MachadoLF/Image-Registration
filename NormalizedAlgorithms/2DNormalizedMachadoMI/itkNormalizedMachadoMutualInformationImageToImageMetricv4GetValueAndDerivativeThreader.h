@@ -89,7 +89,7 @@ public:
 
 protected:
   NormalizedMachadoMutualInformationImageToImageMetricv4GetValueAndDerivativeThreader()
-    : m_NormalizedMachadoAssociate(nullptr)
+    : m_MachadoAssociate(nullptr)
   {}
 
   void
@@ -122,9 +122,9 @@ protected:
                                              DerivativeValueType *           localSupportDerivativeResultPtr) const;
 
 private:
-  /** Internal pointer to the NormalizedMachado metric object in use by this threader.
+  /** Internal pointer to the Machado metric object in use by this threader.
    *  This will avoid costly dynamic casting in tight loops. */
-  TNormalizedMachadoMutualInformationMetric * m_NormalizedMachadoAssociate;
+  TNormalizedMachadoMutualInformationMetric * m_MachadoAssociate;
 };
 
 } // end namespace itk
