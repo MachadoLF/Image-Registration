@@ -1,0 +1,59 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "MachadoMIOptimizer3D",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "MachadoMIOptimizer3D::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MachadoMIOptimizer3D-Debug-cc6a91ed36bc0e53f35b.json",
+					"name" : "MachadoMIOptimizer3D",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/leo/Desktop/REPOSITORIES/Image-Registration/NonNormalizedTestedAlgorithms/3DMachadoMIOptimizer/debug",
+		"source" : "/home/leo/Desktop/REPOSITORIES/Image-Registration/NonNormalizedTestedAlgorithms/3DMachadoMIOptimizer"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

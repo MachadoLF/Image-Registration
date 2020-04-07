@@ -1,4 +1,4 @@
-# Install script for directory: /PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer
+# Install script for directory: /home/leo/Desktop/REPOSITORIES/Image-Registration/NonNormalizedTestedAlgorithms/3DMachadoMIOptimizer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/PHShome/lfm23/Desktop/Doutorado/MODULES/3DMachadoMIOptimizer/debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/leo/Desktop/REPOSITORIES/Image-Registration/NonNormalizedTestedAlgorithms/3DMachadoMIOptimizer/debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
