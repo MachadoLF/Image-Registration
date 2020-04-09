@@ -189,7 +189,6 @@ int main( int argc, char *argv[] )
   optimizer->SetNumberOfIterations( 200 );
   optimizer->ReturnBestParametersAndValueOn();
   optimizer->SetGradientMagnitudeTolerance(0.00001);
-
   optimizer->SetRelaxationFactor( 0.5 );
 
   // Create the Command observer and register it with the optimizer.

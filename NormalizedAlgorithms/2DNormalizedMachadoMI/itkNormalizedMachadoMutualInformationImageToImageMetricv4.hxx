@@ -425,7 +425,7 @@ NormalizedMachadoMutualInformationImageToImageMetricv4<TFixedImage,
                      (- this->m_qValue / std::pow((sumA - 1.0),2))
                      * (std::pow(jointPDFValue,(this->m_qValue - 1))
                      * (*derivPtr) * ( std::pow(fixedImagePDFValue * movingImagePDFValue,(1 - this->m_qValue))
-                     * (1.0 - sumA) + sumB + 1.0));
+                     * (sumA - 1.0) + 1.0 - sumB));
           } // end for-loop over parameters
         }
         else
@@ -460,8 +460,8 @@ NormalizedMachadoMutualInformationImageToImageMetricv4<TFixedImage,
     }
   }
 
-  // in ITKv4, metrics always minimize
-  this->m_Value = static_cast<MeasureType>(-1.0 * ((1.0 - sumB)/(sumA - 1.0)));
+  // in ITKv4, metrics always minimize. Hence, the -1.0 multiplication
+  this->m_Value = static_cast<MeasureType>(-1.0 * (1.0 + (1.0 - sumB)/(sumA - 1.0)));
 }
 
 
