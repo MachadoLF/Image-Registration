@@ -390,6 +390,7 @@ NormalizedMachadoMutualInformationImageToImageMetricv4<TFixedImage,
 
   const PDFValueType nFactor = 1.0 / (this->m_MovingImageBinSize * this->GetNumberOfValidPoints());
 
+  jointPDFPtr = this->m_ThreaderJointPDF[0]->GetBufferPointer();
   static constexpr PDFValueType closeToZero = std::numeric_limits<PDFValueType>::epsilon();
   for (unsigned int fixedIndex = 0; fixedIndex < this->m_NumberOfHistogramBins; ++fixedIndex)
   {
