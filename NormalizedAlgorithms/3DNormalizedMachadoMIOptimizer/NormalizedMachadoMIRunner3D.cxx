@@ -334,6 +334,8 @@ int main( int argc, char *argv[] )
               transformWriter->Update();
 
               // Creating and writing the displacement vector image
+              // Based on example: https://itk.org/Doxygen/html/Examples_2RegistrationITKv3_2DeformableRegistration8_8cxx-example.html
+
               using VectorType = itk::Vector<float, Dimension>;
               using DisplacementFieldType = itk::Image<VectorType, Dimension>;
               DisplacementFieldType::Pointer field = DisplacementFieldType::New();
@@ -344,20 +346,20 @@ int main( int argc, char *argv[] )
               field->Allocate();
 
               using FieldIteratorType = itk::ImageRegionIterator<DisplacementFieldType>;
-              FieldIteratorType fi( field, fixedImageReader->GetOutput()->GetBufferedRegion());
+              FieldIteratorType fi( field, movingImageReader->GetOutput()->GetBufferedRegion());
               fi.GoToBegin();
 
-              TransformType::InputPointType fixedPoint;
-              TransformType::OutputPointType movingPoint;
+              TransformType::InputPointType movingPoint;
+              TransformType::OutputPointType transformedPoint;
               DisplacementFieldType::IndexType index;
 
               VectorType displacement;
 
               while( !fi.IsAtEnd()){
                   index = fi.GetIndex();
-                  field->TransformIndexToPhysicalPoint( index, fixedPoint );
-                  movingPoint = finalTransform->TransformPoint( fixedPoint );
-                  displacement = movingPoint - fixedPoint;
+                  field->TransformIndexToPhysicalPoint( index, movingPoint );
+                  transformedPoint = finalTransform->TransformPoint( movingPoint );
+                  displacement = transformedPoint - movingPoint;
                   fi.Set(displacement);
                   ++fi;
               }
