@@ -1,0 +1,31 @@
+#!/bin/bash
+CLIDir=~/Desktop/REPOSITORIES/Image-Registration/NormalizedAlgorithms/3DNormalizedMachadoMIOptimizer/debug
+
+cd ~/Desktop/ACRIN-registrations/ACRIN-registrations
+current=`echo $PWD`
+i=0 # counter for found pair of images
+for folder in `ls -d $current/*/`; do
+	# entering inside each image folder 
+	cd $folder
+		# Verifying if T1 and CT exists before calling the .exe CLI
+		if t1=`ls -c -ltd -- *T1*.nrrd`; then
+			T1file=$folder*T1*.nrrd
+				if ct=`ls -c -ltd -- *CT*.nrrd`; then
+					CTfile=$folder*CT*.nrrd	# found T1 and CT file!
+					#echo $T1file
+					#echo $CTfile
+					#((i=i+1))
+					# storing the current path:
+					path=`echo $PWD`
+					echo $path
+					# Calling CLI and sending the parameters Path, T1 and CT present in each folder;
+					# We will consider CT as the fixed image and T1 as the moving one;
+					$CLIDir/NormalizedMachadoMIRunner3D $CTfile $T1file $path
+				else
+					echo "CT file not found"
+				fi		 
+		else
+			echo "T1 file not found"
+		fi
+done
+echo $i

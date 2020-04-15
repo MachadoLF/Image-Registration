@@ -19,6 +19,7 @@
 //  Software Guide : BeginCommandLineArgs
 //    INPUTS:  {FixedImage.png}
 //    INPUTS:  {MovingImage.png}
+//    INPUTS:  {ImagePath}
 //    OUTPUTS: {performance.csv}
 
 //  This algorithm intends to find the optmum q-value
@@ -98,11 +99,11 @@ public:
 
 int main( int argc, char *argv[] )
 {
-  if( argc < 3 )
+  if( argc < 4 )
     {
-    std::cerr << "Missing Parameters " << std::endl;
-    std::cerr << "Usage: " << argv[0];
-    std::cerr << " fixedImageFile  movingImageFile "<< std::endl;
+    std::cerr << " Missing Parameters " << std::endl;
+    std::cerr << " Usage: " << argv[0];
+    std::cerr << " FixedImageFile  MovingImageFile ImagePath "<< std::endl;
     return EXIT_FAILURE;
     }
 
@@ -120,7 +121,9 @@ int main( int argc, char *argv[] )
                                     MovingImageType,
                                     TransformType    > RegistrationType;
 
-  myfile.open ("performance.csv");
+  std::cerr << "Chegou Aqui! " << std::endl;
+  std::string imagePath = argv[3];
+  myfile.open (imagePath + "performance.csv");
 
 
   // Defining specific metric
@@ -323,6 +326,7 @@ int main( int argc, char *argv[] )
 
           // Writing the transform file and displacement field only once.
           if (y == n_times - 1){
+
               std::ostringstream val;
               val << std::setprecision(2) << qValue;
 
@@ -330,7 +334,7 @@ int main( int argc, char *argv[] )
               using TransformWriterType = itk::TransformFileWriter;
               TransformWriterType::Pointer transformWriter = TransformWriterType::New();
               transformWriter->SetInput(finalTransform);
-              transformWriter->SetFileName("resultTransform"+val.str()+".tfm");
+              transformWriter->SetFileName(imagePath + "resultTransform-q="+val.str()+".tfm");
               transformWriter->Update();
 
               // Creating and writing the displacement vector image
@@ -367,9 +371,8 @@ int main( int argc, char *argv[] )
               using FieldWriterType = itk::ImageFileWriter<DisplacementFieldType>;
               FieldWriterType::Pointer fieldWriter = FieldWriterType::New();
               fieldWriter->SetInput(field);
-              fieldWriter->SetFileName("dispField"+val.str()+".nrrd");
+              fieldWriter->SetFileName(imagePath + "dispField-q=" + val.str() + ".nrrd");
               fieldWriter->Update();
-
 
           }
 
