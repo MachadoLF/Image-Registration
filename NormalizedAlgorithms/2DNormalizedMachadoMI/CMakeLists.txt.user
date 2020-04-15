@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.1, 2020-04-09T11:28:08. -->
+<!-- Written by QtCreator 4.11.1, 2020-04-14T17:54:32. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -184,9 +184,9 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">NormalizedMachadoMIOptimizer</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.NormalizedMachadoMIOptimizer</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">NormalizedMachadoMIOptimizer</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">NormalizedMachadoMI2DRunner</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.NormalizedMachadoMI2DRunner</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">NormalizedMachadoMI2DRunner</value>
     <value type="QString" key="RunConfiguration.Arguments">BrainT1SliceBorder20.png BrainProtonDensitySliceShifted13x17y.png</value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

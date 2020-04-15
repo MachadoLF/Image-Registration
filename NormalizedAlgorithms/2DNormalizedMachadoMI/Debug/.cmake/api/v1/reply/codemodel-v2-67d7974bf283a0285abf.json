@@ -1,0 +1,59 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "NormalizedMachadoMI2DRunner",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "NormalizedMachadoMI2DRunner::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-NormalizedMachadoMI2DRunner-Debug-9b068f5478830d0cd81b.json",
+					"name" : "NormalizedMachadoMI2DRunner",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/leo/Desktop/REPOSITORIES/Image-Registration/NormalizedAlgorithms/2DNormalizedMachadoMI/Debug",
+		"source" : "/home/leo/Desktop/REPOSITORIES/Image-Registration/NormalizedAlgorithms/2DNormalizedMachadoMI"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

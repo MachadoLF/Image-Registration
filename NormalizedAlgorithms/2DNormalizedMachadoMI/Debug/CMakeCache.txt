@@ -158,7 +158,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=NormalizedMachadoMIOptimizer
+CMAKE_PROJECT_NAME:STATIC=NormalizedMachadoMI2DRunner
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -226,10 +226,10 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 ITK_DIR:PATH=/usr/local/lib/cmake/ITK-5.0
 
 //Value Computed by CMake
-NormalizedMachadoMIOptimizer_BINARY_DIR:STATIC=/home/leo/Desktop/REPOSITORIES/Image-Registration/NormalizedAlgorithms/2DNormalizedMachadoMI/Debug
+NormalizedMachadoMI2DRunner_BINARY_DIR:STATIC=/home/leo/Desktop/REPOSITORIES/Image-Registration/NormalizedAlgorithms/2DNormalizedMachadoMI/Debug
 
 //Value Computed by CMake
-NormalizedMachadoMIOptimizer_SOURCE_DIR:STATIC=/home/leo/Desktop/REPOSITORIES/Image-Registration/NormalizedAlgorithms/2DNormalizedMachadoMI
+NormalizedMachadoMI2DRunner_SOURCE_DIR:STATIC=/home/leo/Desktop/REPOSITORIES/Image-Registration/NormalizedAlgorithms/2DNormalizedMachadoMI
 
 //Path to a program.
 ProcessorCount_cmd_nproc:FILEPATH=/usr/bin/nproc
