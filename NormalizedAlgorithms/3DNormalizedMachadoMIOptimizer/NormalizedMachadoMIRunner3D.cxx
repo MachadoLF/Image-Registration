@@ -29,6 +29,7 @@
 #include "itkImageRegistrationMethodv4.h"
 #include "itkTranslationTransform.h"
 #include "itkNormalizedMachadoMutualInformationImageToImageMetricv4.h"
+#include "itkMachadoMutualInformationImageToImageMetricv4.h"
 #include "itkMattesMutualInformationImageToImageMetricv4.h"
 #include "itkRegularStepGradientDescentOptimizerv4.h"
 // Software Guide : EndCodeSnippet
@@ -121,14 +122,17 @@ int main( int argc, char *argv[] )
                                     MovingImageType,
                                     TransformType    > RegistrationType;
 
-  std::cerr << "Chegou Aqui! " << std::endl;
+  // std::cerr << "Chegou Aqui! " << std::endl;
   std::string imagePath = argv[3];
-  myfile.open (imagePath + "performance.csv");
+  // myfile.open (imagePath + "performance.csv");
 
 
   // Defining specific metric
-  // Tsallis
+  // Normalized Tsallis MI Metric
   typedef itk::NormalizedMachadoMutualInformationImageToImageMetricv4< FixedImageType,MovingImageType > MetricType;
+
+  // Normalized Tsallis MI Metric
+  // typedef itk::MachadoMutualInformationImageToImageMetricv4< FixedImageType,MovingImageType > MetricType;
 
   // Mattes
   // typedef itk::MattesMutualInformationImageToImageMetricv4< FixedImageType,MovingImageType > MetricType;
@@ -145,14 +149,14 @@ int main( int argc, char *argv[] )
   movingImageReader->SetFileName( argv[2] );
 
   // Number of qValues tested
-  unsigned int numOfInstances = 1;
-  int n_times = 1;
+  unsigned int numOfInstances = 150;
+  int n_times = 3;
 
   myfile <<"# All the points presented here are averaged over "<<n_times<<" times execution."<<std::endl;
   myfile <<"qValue,Number of Iterations,X,Y,Z,Angle"<<std::endl;
 
-  double qValueIni = 0.5;
-  for (unsigned int i = 0; i <= numOfInstances; ++i) // qValue Loop
+  double qValueIni = 0.01;
+  for (unsigned int i = 100; i < numOfInstances; ++i) // qValue Loop
   {
       double meanNumberOfIterations = 0.0;
       double meanX = 0.0;
@@ -160,7 +164,9 @@ int main( int argc, char *argv[] )
       double meanZ = 0.0;
       double meanAngle = 0.0;
 
-      double qValue = qValueIni + i;
+      double qValue = qValueIni + i*0.01;
+
+      std::cout << "q-value = " << qValue << std::endl;
 
       if (qValue == 1.0){
           continue;
@@ -328,13 +334,14 @@ int main( int argc, char *argv[] )
           if (y == n_times - 1){
 
               std::ostringstream val;
-              val << std::setprecision(2) << qValue;
+              val << std::setprecision(3) << qValue;
+              std::string id = val.str();
 
               // Writing Transform
               using TransformWriterType = itk::TransformFileWriter;
               TransformWriterType::Pointer transformWriter = TransformWriterType::New();
               transformWriter->SetInput(finalTransform);
-              transformWriter->SetFileName(imagePath + "resultTransform-q="+val.str()+".tfm");
+              transformWriter->SetFileName(imagePath + "resultTransform-q="+id+".tfm");
               transformWriter->Update();
 
               // Creating and writing the displacement vector image
@@ -371,8 +378,12 @@ int main( int argc, char *argv[] )
               using FieldWriterType = itk::ImageFileWriter<DisplacementFieldType>;
               FieldWriterType::Pointer fieldWriter = FieldWriterType::New();
               fieldWriter->SetInput(field);
-              fieldWriter->SetFileName(imagePath + "dispField-q=" + val.str() + ".nrrd");
+              fieldWriter->SetFileName(imagePath + "dispField-q=" + id + ".nrrd");
               fieldWriter->Update();
+
+              transformWriter.~SmartPointer();
+              field.~SmartPointer();
+              fieldWriter.~SmartPointer();
 
           }
 
