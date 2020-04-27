@@ -17,13 +17,7 @@
  *=========================================================================*/
 
 //  Software Guide : BeginCommandLineArgs
-//    INPUTS:  {FixedImage.png}
-//    INPUTS:  {MovingImage.png}
-//    INPUTS:  {ImagePath}
-//    OUTPUTS: {performance.csv}
-
-//  This algorithm intends to find the optmum q-value
-//  for a 3-D rigid multy-modality registration
+//    INPUTS: CT.nrrd T1.nrrd LinearTransform.h5
 
 #include "itkVersorRigid3DTransform.h"
 #include "itkAffineTransform.h"

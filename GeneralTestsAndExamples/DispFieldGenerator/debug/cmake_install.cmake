@@ -1,4 +1,4 @@
-# Install script for directory: /a/lfm23/Doutorado/Image-Registration/DispFieldGenerator
+# Install script for directory: /a/lfm23/Doutorado/Image-Registration/GeneralTestsAndExamples/DispFieldGenerator
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/a/lfm23/Doutorado/Image-Registration/DispFieldGenerator/debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/a/lfm23/Doutorado/Image-Registration/GeneralTestsAndExamples/DispFieldGenerator/debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
