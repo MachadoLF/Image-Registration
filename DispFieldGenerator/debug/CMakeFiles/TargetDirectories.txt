@@ -1,3 +1,0 @@
-/a/lfm23/Doutorado/Image-Registration/DispFieldGenerator/debug/CMakeFiles/rebuild_cache.dir
-/a/lfm23/Doutorado/Image-Registration/DispFieldGenerator/debug/CMakeFiles/DispFieldGenerator.dir
-/a/lfm23/Doutorado/Image-Registration/DispFieldGenerator/debug/CMakeFiles/edit_cache.dir
