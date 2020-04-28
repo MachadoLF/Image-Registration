@@ -1,0 +1,29 @@
+#!/bin/bash
+pmDir=~/Desktop/GeneralSources/plastimatch/Build 
+
+Dir=/a/lfm23/Doutorado/ACRIN
+
+cd /a/lfm23/Doutorado/ACRIN/Data-Greg
+
+current=`echo $PWD`
+i=0 # counter for found pair of images
+for folder in `ls -A1`; do
+    # entering inside each patient folder/Results 
+    cd $current/$folder
+
+    # Verifying if CT exists before calling plastmatch
+	if ct=`ls -c -ltd -- *CT*.nrrd`; then
+        # Catching CT file - the reference file
+        CTfile=$current/$folder/*CT*.nrrd	# found T1 and CT file!
+        xformFile=$Dir/GroundTruthTransformsTFM/*$folder* 
+        fieldFile=$Dir/DispFieldsSpecialists/*$folder* 
+        
+        $pmDir/plastimatch xf-convert --input $xformFile --output $fieldFile --output-type vf --fixed $CTfile 
+
+        i=$((i+1))      		 
+    else
+        echo "CT file not found"
+        echo ${CTfile}
+    fi
+done
+echo $i

@@ -1,0 +1,14 @@
+#!/bin/bash
+#CLIDir=/a/lfm23/Doutorado/Image-Registration/NormalizedAlgorithms/3DNormalizedMachadoMIOptimizer/debug
+
+cd /a/lfm23/Doutorado/ACRIN/Data-Greg
+
+current=`echo $PWD`
+i=0 # counter for found pair of images
+for folder in `ls -d $current/*/`; do
+	# entering inside each image folder 
+    cd $folder
+    # Verifying if T1 and CT exists before calling the .exe CLI
+    mkdir $folder/NonNormalizedResults 
+done
+echo $i

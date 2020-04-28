@@ -1,0 +1,34 @@
+#!/bin/bash
+pmDir=~/Desktop/GeneralSources/plastimatch/Build 
+
+maskDir=/a/lfm23/Doutorado/ACRIN/CTalignedPatientsBrainMask 
+
+cd /a/lfm23/Doutorado/ACRIN/Data-Greg
+
+current=`echo $PWD`
+i=0 # counter for found pair of images
+for folder in `ls -A1`; do
+    # entering inside each patient folder/Results 
+    cd $current/$folder
+
+    # Verifying if CT exists before calling plastmatch
+	if ct=`ls -c -ltd -- *CT*`; then
+        # Catching CT file - the reference file
+        CTfile=$current/$folder/*CT*	# found T1 and CT file!
+        
+        maskFile=$maskDir/*$folder* 
+        newMaskFile=$maskDir/resampledMask$folder.nrrd 
+        
+        echo $maskFile
+        echo $newMaskFile
+        echo $CTfile
+        
+        $pmDir/plastimatch convert --input $maskFile --fixed $CTfile --output-img $newMaskFile 
+
+        i=$((i+1))      		 
+    else
+        echo "CT file not found"
+        echo ${CTfile}
+    fi
+done
+echo $i

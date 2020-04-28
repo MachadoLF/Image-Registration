@@ -1,0 +1,36 @@
+#!/bin/bash
+
+cd /a/lfm23/Doutorado/ACRIN/Data-Greg
+current=`echo $PWD`
+
+# Deciding which results folder to process 
+res='NormalizedResults'
+#res='NonNormalizedResults'
+
+#Creating CSV files
+
+maskedCsv=$current/$res-masked-qVSdifferences.csv
+unmaskedCsv=$current/$res-unmasked-qVSdifferences.csv
+	
+echo "qValue,Patien1,Patien2,Patien3,Patien4,Patien5,Patien6,Patien7,Patien8,Patien9,Patien10" > $maskedCsv 
+echo "qValue,Patien1,Patien2,Patien3,Patien4,Patien5,Patien6,Patien7,Patien8,Patien9,Patien10" > $unmaskedCsv
+
+for folder in `ls -A1`; do
+	# Enter into patient's folder and creat a CSV for 
+	# storing q-value vs dispField agreement
+	
+    patientCSV=$current/$folder/$res/total* 
+	echo "Patient = " $folder "--file = " $patientCSV
+    
+    while IFS=, read -r q unmaskedDiff maskedDiff; do
+		if [[ "$folder" == "001" ]]; then
+			echo ','$folder
+			echo $q $unmaskedDiff
+			echo $q $maskedDiff 
+			i=$((i+1))
+		fi
+	done < $patientCSV
+
+	echo $i
+done
+echo $refFieldsi

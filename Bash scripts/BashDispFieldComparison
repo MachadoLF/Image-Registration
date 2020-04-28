@@ -1,0 +1,62 @@
+#!/bin/bash
+
+#plastimatch compare --mask Testing/rect-1.mha Testing/vf-trans-1.mha Testing/vf-trans-2.mha
+#plastimatch compare image1 image2
+#plastimatch compare vf-zero.mha vf-trans-1.mha | grep Ave | sed -e 's/[^-0-9]*//'
+
+cd /a/lfm23/Doutorado/ACRIN/Data-Greg
+current=`echo $PWD`
+
+pmDir=~/Desktop/GeneralSources/plastimatch/Build 
+dispFieldRefFolder=/a/lfm23/Doutorado/ACRIN/DispFieldsSpecialists      
+maskfFolder=/a/lfm23/Doutorado/ACRIN/CTalignedPatientsBrainMask      
+
+# Deciding which results folder to process 
+res='NormalizedResults'
+#res='NonNormalizedResults'
+#`ls -A1`
+refFieldsi=0
+for folder in `ls -A1`; do
+	# Enter into patient's folder and creat a CSV for 
+	# storing q-value vs dispField agreement 
+	cd $current/$folder/$res
+	csv=$current/$folder/$res/totalRes-${folder}.csv
+	#echo "#Patient $folder" >> $csv
+	echo "qValue,WholeFieldAgreement,MaskedFieldAgreement" >> $csv 
+	
+
+	# pick fieldRef
+	fieldRefName=DisplacementField$folder.nrrd
+	if test -f "$dispFieldRefFolder/$fieldRefName"; then
+		fieldRef=$dispFieldRefFolder/$fieldRefName
+		refFieldsi=$((refFieldsi+1))
+	else
+		echo "Reference Field $fieldRefName does nor exist!"
+	fi
+    maskRefile=$maskfFolder/resampledMask$folder* 
+
+	i=0 # counter for found pair of images
+	for field in `ls -A1 *dispField*`; do
+	    fieldName=${field%'.nrrd'}
+		qValue=${fieldName##*'dispField-q='}	
+		if test -f "$current/$folder/$res/$field"; then
+			fieldTested=$current/$folder/$res/$field 
+			# Catching plastimatch output
+            pmPrint=`$pmDir/plastimatch compare --mask $maskRefile $fieldRef $fieldTested | grep Ave | sed -e 's/[^-0-9]*//'`
+            # Separatin masked from no-mask results
+            pmPrintArray=($pmPrint)
+            whole=${pmPrintArray[0]}
+		    masked=${pmPrintArray[1]}
+            # Printing into file
+            echo 'Patient = '$folder --'qValue = ' $qValue --'Whole Aver. Diff. = '$whole --'Masked = '$masked  
+			echo "$qValue,$whole,$masked" >> $csv
+
+			i=$((i+1))
+		else
+			echo "Test Field $fieldQ does not exist!"
+		fi 
+		#fildAgrement=$pmDir/plastimatch compare  ${dispFieldRef}$folder vf-trans-1.mha | grep Ave | sed -e 's/[^-0-9]*//'
+	done
+	echo $i
+done
+echo $refFieldsi
