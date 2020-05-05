@@ -1,0 +1,59 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "NormalizedMachadoMIRunner3D",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "NormalizedMachadoMIRunner3D::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-NormalizedMachadoMIRunner3D-Debug-c6a92f138818c10b8887.json",
+					"name" : "NormalizedMachadoMIRunner3D",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/leo/Desktop/REPOSITORIES/Image-Registration/NormalizedAlgorithms/3DNormalizedMachadoMIOptimizer/debug",
+		"source" : "/home/leo/Desktop/REPOSITORIES/Image-Registration/NormalizedAlgorithms/3DNormalizedMachadoMIOptimizer"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}
