@@ -1,3 +1,0 @@
-/a/lfm23/Doutorado/Image-Registration/GeneralMachadoMIOptimizer/debug/CMakeFiles/rebuild_cache.dir
-/a/lfm23/Doutorado/Image-Registration/GeneralMachadoMIOptimizer/debug/CMakeFiles/GeneralMachadoMIOptimizer.dir
-/a/lfm23/Doutorado/Image-Registration/GeneralMachadoMIOptimizer/debug/CMakeFiles/edit_cache.dir

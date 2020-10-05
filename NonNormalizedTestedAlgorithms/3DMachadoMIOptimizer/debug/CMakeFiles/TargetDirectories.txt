@@ -1,3 +1,0 @@
-/a/lfm23/Doutorado/Image-Registration/NonNormalizedTestedAlgorithms/3DMachadoMIOptimizer/debug/CMakeFiles/rebuild_cache.dir
-/a/lfm23/Doutorado/Image-Registration/NonNormalizedTestedAlgorithms/3DMachadoMIOptimizer/debug/CMakeFiles/MachadoMIOptimizer3D.dir
-/a/lfm23/Doutorado/Image-Registration/NonNormalizedTestedAlgorithms/3DMachadoMIOptimizer/debug/CMakeFiles/edit_cache.dir

@@ -1,3 +1,0 @@
-/home/leo/Desktop/Doutorado/Registration Modules/3DMachadoMIRunner/debug/CMakeFiles/rebuild_cache.dir
-/home/leo/Desktop/Doutorado/Registration Modules/3DMachadoMIRunner/debug/CMakeFiles/3DMachadoMIRunner.dir
-/home/leo/Desktop/Doutorado/Registration Modules/3DMachadoMIRunner/debug/CMakeFiles/edit_cache.dir
