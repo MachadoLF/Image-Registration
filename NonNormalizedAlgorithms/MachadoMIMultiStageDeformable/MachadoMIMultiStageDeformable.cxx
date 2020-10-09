@@ -61,13 +61,115 @@
 
 #include "itkTransformFileReader.h"
 
+#include "itkCenteredTransformInitializer.h"
 #include "itkBSplineTransformInitializer.h"
 #include "itkTransformToDisplacementFieldFilter.h"
+#include "itkCompositeTransform.h"
+#include "itkBSplineTransformParametersAdaptor.h"
 
 //  The following section of code implements a Command observer
 //  used to monitor the evolution of the registration process.
 //
 #include "itkCommand.h"
+
+//  The following section of code implements a Command observer
+//  that will monitor the configurations of the registration process
+//  at every change of stage and resolution level.
+
+template <typename TRegistration>
+class RegistrationInterfaceCommand : public itk::Command
+{
+public:
+  using Self = RegistrationInterfaceCommand;
+  using Superclass = itk::Command;
+  using Pointer = itk::SmartPointer<Self>;
+  itkNewMacro(Self);
+
+protected:
+  RegistrationInterfaceCommand() = default;
+
+public:
+  using RegistrationType = TRegistration;
+
+  // The Execute function simply calls another version of the \code{Execute()}
+  // method accepting a \code{const} input object
+  void
+  Execute(itk::Object * object, const itk::EventObject & event) override
+  {
+    Execute((const itk::Object *)object, event);
+  }
+
+  void
+  Execute(const itk::Object * object, const itk::EventObject & event) override
+  {
+    if (!(itk::MultiResolutionIterationEvent().CheckEvent(&event)))
+    {
+      return;
+    }
+
+    std::cout << "\nObserving from class " << object->GetNameOfClass();
+    if (!object->GetObjectName().empty())
+    {
+      std::cout << " \"" << object->GetObjectName() << "\"" << std::endl;
+    }
+
+    const auto * registration = static_cast<const RegistrationType *>(object);
+
+    unsigned int currentLevel = registration->GetCurrentLevel();
+    typename RegistrationType::ShrinkFactorsPerDimensionContainerType shrinkFactors =
+      registration->GetShrinkFactorsPerDimension(currentLevel);
+    typename RegistrationType::SmoothingSigmasArrayType smoothingSigmas =
+      registration->GetSmoothingSigmasPerLevel();
+
+    std::cout << "-------------------------------------" << std::endl;
+    std::cout << " Current multi-resolution level = " << currentLevel << std::endl;
+    std::cout << "    shrink factor = " << shrinkFactors << std::endl;
+    std::cout << "    smoothing sigma = " << smoothingSigmas[currentLevel] << std::endl;
+    std::cout << std::endl;
+  }
+};
+
+// Templated CommandIterationUpdate to track optimizer steps
+
+template <typename TOptimizer>
+class CommandIterationUpdate : public itk::Command
+{
+public:
+  using Self = CommandIterationUpdate;
+  using Superclass = itk::Command;
+  using Pointer = itk::SmartPointer<Self>;
+  itkNewMacro(Self);
+
+protected:
+  CommandIterationUpdate() {}; // = default;
+
+public:
+  using OptimizerType = TOptimizer;
+  using OptimizerPointer = const OptimizerType *;
+
+  void
+  Execute(itk::Object * caller, const itk::EventObject & event) override
+  {
+    Execute((const itk::Object *)caller, event);
+  }
+
+  void
+  Execute(const itk::Object * object, const itk::EventObject & event) override
+  {
+    auto optimizer = static_cast<OptimizerPointer>(object);
+    if (!(itk::IterationEvent().CheckEvent(&event)))
+    {
+      return;
+    }
+    std::cout << optimizer->GetCurrentIteration() << "   ";
+    std::cout << optimizer->GetCurrentMetricValue() << "   ";
+    std::cout << optimizer->GetInfinityNormOfProjectedGradient() << std::endl;
+  }
+};
+
+
+/*
+// CommandIterationUpdate with specific
 class CommandIterationUpdate : public itk::Command
 {
 public:
@@ -101,8 +203,7 @@ public:
     std::cout << optimizer->GetCurrentMetricValue() << "   ";
     std::cout << optimizer->GetInfinityNormOfProjectedGradient() << std::endl;
   }
-};
-
+}; */
 
 int
 main(int argc, char * argv[])
@@ -147,6 +248,7 @@ main(int argc, char * argv[])
   // have names starting with R
 
   // Defining object types
+  //
   using RTransformType = itk::VersorRigid3DTransform<double>;
   using ROptimizerType = itk::RegularStepGradientDescentOptimizerv4<double>;
   using RRegistrationType = itk::ImageRegistrationMethodv4<
@@ -172,22 +274,114 @@ main(int argc, char * argv[])
   rregistration->SetFixedImage(fixedImage);
   rregistration->SetMovingImage(movingImage);
 
+  // Defining Composit Transform Object
+  // It will stack all the transforms obtainned during the registration;
+  //
+  using  CompositeTransformType = itk::CompositeTransform<double, ImageDimension>;
+  CompositeTransformType::Pointer compositeTransform = CompositeTransformType::New();
+
+  // Configuring initial transform
+  //
+  using RTransformInitializerType = itk::CenteredTransformInitializer<
+                                    RTransformType, FixedImageType, MovingImageType>;
+  RTransformInitializerType::Pointer rTransformInitializer = RTransformInitializerType::New();
+
+  RTransformType::Pointer rinitialTransform = RTransformType::New();
+
+  rTransformInitializer->SetTransform(rinitialTransform);
+  rTransformInitializer->SetFixedImage(fixedImage);
+  rTransformInitializer->SetMovingImage(movingImage);
+  rTransformInitializer->MomentsOn();  // Using distance of center of masses as first guess;
+
+  rTransformInitializer->InitializeTransform();
+
+  // With rTransformInitializer it is possible to
+  // initiate the translational part of the 3DVersorTransform
+  // The rotational part is initiated manually;
+
+  // rotational part
+  //
+  using RVersorType = RTransformType::VersorType;
+  using RVectorType = RVersorType::VectorType;
+  RVersorType rotation;
+  RVectorType axis;
+  axis[0] = 0.0;
+  axis[1] = 0.0;
+  axis[2] = 1.0;
+  constexpr double angle = 0;
+  rotation.Set(axis, angle);
+  rinitialTransform->SetRotation(rotation);
+
+  // Initial transform initialized;
+  //
+  rregistration->SetInitialTransform(rinitialTransform);
+  rregistration->InPlaceOn();
+
+  // Composit Transform
+  //
+  compositeTransform->AddTransform(rinitialTransform);
+
+  // Setting Optimizer Scales and Parameters
+  //
+  using rOptimizerScalesType = ROptimizerType::ScalesType;
+  rOptimizerScalesType roptimizerScales(rinitialTransform->GetNumberOfParameters());
+  const double         translationScale = 1.0 / 1000.0;
+  roptimizerScales[0] = 1.0;
+  roptimizerScales[1] = 1.0;
+  roptimizerScales[2] = 1.0;
+  roptimizerScales[3] = translationScale;
+  roptimizerScales[4] = translationScale;
+  roptimizerScales[5] = translationScale;
+
+  roptimizer->SetScales(roptimizerScales);
+
   roptimizer->SetLearningRate(16);
   roptimizer->SetMinimumStepLength(1.5);
   roptimizer->SetNumberOfIterations(200);
   roptimizer->SetRelaxationFactor(0.5);
 
+  // Setting optimizer observer for the rigid stage
+  //
+  using RigidCommandOptimizerType = CommandIterationUpdate<ROptimizerType>;
+  RigidCommandOptimizerType::Pointer rcommand1 = RigidCommandOptimizerType::New();
+  roptimizer->AddObserver(itk::IterationEvent(), rcommand1);
 
-  //** Set initial transform
-  //** Set multi resolution schema
+  // Setting multiresolution step for rigid stage
+  //
+  constexpr unsigned int rnumberOfLevels = 2;
 
+  RRegistrationType::ShrinkFactorsArrayType rshrinkFactorsPerLevel;
+  rshrinkFactorsPerLevel.SetSize( 2 );
+  rshrinkFactorsPerLevel[0] = 2;
+  rshrinkFactorsPerLevel[1] = 1;
 
+  RRegistrationType::SmoothingSigmasArrayType rsmoothingSigmasPerLevel;
+  rsmoothingSigmasPerLevel.SetSize( 2 );
+  rsmoothingSigmasPerLevel[0] = 1;
+  rsmoothingSigmasPerLevel[1] = 2;
 
+  rregistration->SetNumberOfLevels( rnumberOfLevels );
+  rregistration->SetShrinkFactorsPerLevel( rshrinkFactorsPerLevel );
+  rregistration->SetSmoothingSigmasPerLevel( rsmoothingSigmasPerLevel );
 
+  using RigidCommandRegistrationType = RegistrationInterfaceCommand<RRegistrationType>;
+  RigidCommandRegistrationType::Pointer rcommand2 = RigidCommandRegistrationType::New();
+  rregistration->AddObserver(itk::MultiResolutionIterationEvent(), rcommand2);
 
+  // Now, let's run the rigid stage
+  try {
+      rregistration->Update();
+      std::cout << "Optimizer stop condition"
+                << rregistration->GetOptimizer()->GetStopConditionDescription()
+                << std::endl;
+  } catch ( itk::ExceptionObject & err) {
+      std::cout << "ExceptionObject caught !" << std::endl;
+      std::cout << err << std::endl;
+      return EXIT_FAILURE;
+  }
 
-
-
+  // Add the final rigid transform into the composit transform stack
+  compositeTransform->AddTransform(rregistration->GetModifiableTransform());
 
   // ////////////////// Second stage: Deformable
 
@@ -207,26 +401,26 @@ main(int argc, char * argv[])
   constexpr unsigned int SplineOrder = 3;
   using CoordinateRepType = double;
 
-  using TransformType =
+  using DTransformType =
     itk::BSplineTransform<CoordinateRepType, SpaceDimension, SplineOrder>;
   // Software Guide : EndCodeSnippet
 
 
-  using OptimizerType = itk::LBFGSBOptimizerv4;
+  using DOptimizerType = itk::LBFGSBOptimizerv4;
 
 
-  using RegistrationType =
+  using DRegistrationType =
     itk::ImageRegistrationMethodv4<FixedImageType, MovingImageType>;
 
-  OptimizerType::Pointer    optimizer = OptimizerType::New();
-  RegistrationType::Pointer registration = RegistrationType::New();
+  DOptimizerType::Pointer    doptimizer = DOptimizerType::New();
+  DRegistrationType::Pointer dregistration = DRegistrationType::New();
 
 
-  registration->SetMetric(metric);
-  registration->SetOptimizer(optimizer);
+  dregistration->SetMetric(metric);
+  dregistration->SetOptimizer(doptimizer);
 
-  registration->SetFixedImage(fixedImage);
-  registration->SetMovingImage(movingImage);
+  dregistration->SetFixedImage(fixedImage);
+  dregistration->SetMovingImage(movingImage);
 
 
   //  Software Guide : BeginLatex
@@ -240,12 +434,13 @@ main(int argc, char * argv[])
   //  Software Guide : EndLatex
 
   // Software Guide : BeginCodeSnippet
-  TransformType::Pointer transform = TransformType::New();
+  DTransformType::Pointer dtransform = DTransformType::New();
   // Software Guide : EndCodeSnippet
 
   // Initialize the transform
-  unsigned int numberOfGridNodesInOneDimension = 5;
+  unsigned int numberOfGridNodesInOneDimension = 8;
 
+  /*
   if (argc > 8)
   {
     numberOfGridNodesInOneDimension = std::stoi(argv[8]);
@@ -255,10 +450,12 @@ main(int argc, char * argv[])
     itk::BSplineTransformInitializer<TransformType, FixedImageType>;
 
   InitializerType::Pointer transformInitializer = InitializerType::New();
+  */
 
-  TransformType::MeshSizeType meshSize;
+  DTransformType::MeshSizeType meshSize;
   meshSize.Fill(numberOfGridNodesInOneDimension - SplineOrder);
 
+  /*
   transformInitializer->SetTransform(transform);
   transformInitializer->SetImage(fixedImage);
   transformInitializer->SetTransformDomainMeshSize(meshSize);
@@ -266,68 +463,94 @@ main(int argc, char * argv[])
 
   // Set transform to identity
   transform->SetIdentity();
+  */
 
   // Software Guide : BeginCodeSnippet
-  registration->SetInitialTransform(transform);
-  registration->InPlaceOn();
+  dregistration->SetInitialTransform(compositeTransform);
+  // dregistration->InPlaceOn();
   // Software Guide : EndCodeSnippet
 
 
-  //  Software Guide : BeginLatex
-  //
   //  Next we set the parameters of the LBFGSB Optimizer.
   //
-  //  Software Guide : EndLatex
-
-  // Software Guide : BeginCodeSnippet
   const unsigned int                numParameters = transform->GetNumberOfParameters();
-  OptimizerType::BoundSelectionType boundSelect(numParameters);
-  OptimizerType::BoundValueType     upperBound(numParameters);
-  OptimizerType::BoundValueType     lowerBound(numParameters);
+  DOptimizerType::BoundSelectionType boundSelect(numParameters);
+  DOptimizerType::BoundValueType     upperBound(numParameters);
+  DOptimizerType::BoundValueType     lowerBound(numParameters);
 
-  boundSelect.Fill(OptimizerType::UNBOUNDED);
+  boundSelect.Fill(DOptimizerType::UNBOUNDED);
   upperBound.Fill(0.0);
   lowerBound.Fill(0.0);
 
-  optimizer->SetBoundSelection(boundSelect);
-  optimizer->SetUpperBound(upperBound);
-  optimizer->SetLowerBound(lowerBound);
+  doptimizer->SetBoundSelection(boundSelect);
+  doptimizer->SetUpperBound(upperBound);
+  doptimizer->SetLowerBound(lowerBound);
 
-  optimizer->SetCostFunctionConvergenceFactor(1.e7);
-  optimizer->SetGradientConvergenceTolerance(1e-6);
-  optimizer->SetNumberOfIterations(200);
-  optimizer->SetMaximumNumberOfFunctionEvaluations(30);
-  optimizer->SetMaximumNumberOfCorrections(5);
+  doptimizer->SetCostFunctionConvergenceFactor(1.e7);
+  doptimizer->SetGradientConvergenceTolerance(1e-6);
+  doptimizer->SetNumberOfIterations(200);
+  doptimizer->SetMaximumNumberOfFunctionEvaluations(30);
+  doptimizer->SetMaximumNumberOfCorrections(5);
   // Software Guide : EndCodeSnippet
 
   // Create the Command observer and register it with the optimizer.
   //
-  CommandIterationUpdate::Pointer observer = CommandIterationUpdate::New();
-  optimizer->AddObserver(itk::IterationEvent(), observer);
+  using DeformableCommandIterationUpdate = CommandIterationUpdate<DRegistrationType>;
+  DeformableCommandIterationUpdate::Pointer dcommand1 = DeformableCommandIterationUpdate::New();
+  doptimizer->AddObserver(itk::IterationEvent(), dcommand1);
 
   //  A single level registration process is run using
-  //  the shrink factor 1 and smoothing sigma 0.
+  //  the shrink factor 3 and smoothing sigma 2,1,0.
   //
-  constexpr unsigned int numberOfLevels = 1;
+  constexpr unsigned int dnumberOfLevels = 3;
 
-  RegistrationType::ShrinkFactorsArrayType shrinkFactorsPerLevel;
-  shrinkFactorsPerLevel.SetSize(numberOfLevels);
-  shrinkFactorsPerLevel[0] = 1;
+  DRegistrationType::ShrinkFactorsArrayType dshrinkFactorsPerLevel;
+  dshrinkFactorsPerLevel.SetSize(dnumberOfLevels);
+  dshrinkFactorsPerLevel[0] = 3;
+  dshrinkFactorsPerLevel[0] = 2;
+  dshrinkFactorsPerLevel[0] = 1;
 
-  RegistrationType::SmoothingSigmasArrayType smoothingSigmasPerLevel;
-  smoothingSigmasPerLevel.SetSize(numberOfLevels);
-  smoothingSigmasPerLevel[0] = 0;
+  DRegistrationType::SmoothingSigmasArrayType dsmoothingSigmasPerLevel;
+  dsmoothingSigmasPerLevel.SetSize(dnumberOfLevels);
+  dsmoothingSigmasPerLevel[0] = 2;
+  dsmoothingSigmasPerLevel[0] = 1;
+  dsmoothingSigmasPerLevel[0] = 0;
 
-  registration->SetNumberOfLevels(numberOfLevels);
-  registration->SetSmoothingSigmasPerLevel(smoothingSigmasPerLevel);
-  registration->SetShrinkFactorsPerLevel(shrinkFactorsPerLevel);
+  dregistration->SetNumberOfLevels(dnumberOfLevels);
+  dregistration->SetSmoothingSigmasPerLevel(dsmoothingSigmasPerLevel);
+  dregistration->SetShrinkFactorsPerLevel(dshrinkFactorsPerLevel);
 
-  //  Software Guide : BeginLatex
+  // Create and set the transform adaptors for each level of this multi resolution scheme.
   //
-  //  Software Guide : EndLatex
+  DRegistrationType::TransformParametersAdaptorsContainerType adaptors;
+  DTransformType::PhysicalDimensionsType fixedPhysicalDimensions;
+  for (unsigned int i = 0; i< SpaceDimension; i++){
+      fixedPhysicalDimensions[i] =
+        fixedImage->GetSpacing()[i] *
+              static_cast<double>(fixedImage->GetLargestPossibleRegion().GetSize()[i]);
+  }
 
-  // Software Guide : BeginCodeSnippet
-  // Software Guide : EndCodeSnippet
+  // Transform adaptors
+  //
+  for (unsigned int level = 0; level < dnumberOfLevels; level++){
+      using ShrinkFilterType = itk::ShrinkImageFilter<FixedImageType, FixedImageType>;
+      ShrinkFilterType::Pointer shrinkFilter = ShrinkFilterType::New();
+      shrinkFilter->SetShrinkFactors(dshrinkFactorsPerLevel[level]);
+      shrinkFilter->SetInput(fixedImage);
+      shrinkFilter->Update();
+
+      // heuristic strategy - double the b-spline mesh resolution at each level
+      //
+      DTransformType::MeshSizeType requiredMeshSize;
+      for (unsigned int d = 0; d < ImageDimension; d++){
+          requiredMeshSize[d] = meshSize[d] << level;
+      }
+
+      using BSplineAdaptorType = itk::BSplineTransformParametersAdaptor<DTransformType>;
+      BSplineAdaptorType::Pointer bsplineAdaptor = BSplineAdaptorType::New();
+      bsplineAdaptor->SetTransform(compositeTransform);
+
+  }
 
   // Add time and memory probes
   itk::TimeProbesCollectorBase   chronometer;
@@ -360,7 +583,7 @@ main(int argc, char * argv[])
   chronometer.Report(std::cout);
   memorymeter.Report(std::cout);
 
-  OptimizerType::ParametersType finalParameters = transform->GetParameters();
+  DOptimizerType::ParametersType finalParameters = transform->GetParameters();
 
   std::cout << "Last Transform Parameters" << std::endl;
   std::cout << finalParameters << std::endl;
