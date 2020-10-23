@@ -533,8 +533,6 @@ main(int argc, char * argv[])
               static_cast<double>(fixedImage->GetLargestPossibleRegion().GetSize()[i]);
   }
 
-  // Transform adaptors
-  //
   for (unsigned int level = 0; level < dnumberOfLevels; level++){
       using ShrinkFilterType = itk::ShrinkImageFilter<FixedImageType, FixedImageType>;
       ShrinkFilterType::Pointer shrinkFilter = ShrinkFilterType::New();
@@ -551,10 +549,20 @@ main(int argc, char * argv[])
 
       using BSplineAdaptorType = itk::BSplineTransformParametersAdaptor<DTransformType>;
       BSplineAdaptorType::Pointer bsplineAdaptor = BSplineAdaptorType::New();
-      bsplineAdaptor->SetTransform(compositeTransform);
-
+      bsplineAdaptor->SetTransform(dtransform);
+      bsplineAdaptor->SetRequiredTransformDomainMeshSize(requiredMeshSize);
+      bsplineAdaptor->SetRequiredTransformDomainOrigin(
+                  shrinkFilter->GetOutput()->GetOrigin());
+      bsplineAdaptor->SetRequiredTransformDomainDirection(
+                  shrinkFilter->GetOutput()->GetDirection());
+      bsplineAdaptor->SetRequiredTransformDomainPhysicalDimensions(
+                  fixedPhysicalDimensions);
+      
+      adaptors.push_back(bsplineAdaptor);
   }
 
+  dregistration->SetTransformParametersAdaptorsPerLevel(adaptors);
+  
   // Add time and memory probes
   itk::TimeProbesCollectorBase   chronometer;
   itk::MemoryProbesCollectorBase memorymeter;
@@ -566,13 +574,13 @@ main(int argc, char * argv[])
     memorymeter.Start("Registration");
     chronometer.Start("Registration");
 
-    registration->Update();
+    dregistration->Update();
 
     chronometer.Stop("Registration");
     memorymeter.Stop("Registration");
 
     std::cout << "Optimizer stop condition = "
-              << registration->GetOptimizer()->GetStopConditionDescription()
+              << dregistration->GetOptimizer()->GetStopConditionDescription()
               << std::endl;
   }
   catch (itk::ExceptionObject & err)
@@ -582,11 +590,13 @@ main(int argc, char * argv[])
     return EXIT_FAILURE;
   }
 
+  compositeTransform->AddTransform(dregistration->GetModifiableTransform());
+  
   // Report the time and memory taken by the registration
   chronometer.Report(std::cout);
   memorymeter.Report(std::cout);
 
-  DOptimizerType::ParametersType finalParameters = transform->GetParameters();
+  DOptimizerType::ParametersType finalParameters = dtransform->GetParameters();
 
   std::cout << "Last Transform Parameters" << std::endl;
   std::cout << finalParameters << std::endl;
@@ -597,7 +607,7 @@ main(int argc, char * argv[])
 
   ResampleFilterType::Pointer resample = ResampleFilterType::New();
 
-  resample->SetTransform(transform);
+  resample->SetTransform(compositeTransform);
   resample->SetInput(movingImageReader->GetOutput());
 
   resample->SetSize(fixedImage->GetLargestPossibleRegion().GetSize());
@@ -609,7 +619,7 @@ main(int argc, char * argv[])
   // regression testing in this example. However, for didactic
   // exercise it will be better to set it to a medium gray value
   // such as 100 or 128.
-  resample->SetDefaultPixelValue(0);
+  resample->SetDefaultPixelValue(100);
 
   using OutputPixelType = signed short;
 
@@ -623,9 +633,7 @@ main(int argc, char * argv[])
   WriterType::Pointer     writer = WriterType::New();
   CastFilterType::Pointer caster = CastFilterType::New();
 
-
   writer->SetFileName(argv[3]);
-
 
   caster->SetInput(resample->GetOutput());
   writer->SetInput(caster->GetOutput());
@@ -706,7 +714,7 @@ main(int argc, char * argv[])
       DisplacementFieldGeneratorType::New();
     dispfieldGenerator->UseReferenceImageOn();
     dispfieldGenerator->SetReferenceImage(fixedImage);
-    dispfieldGenerator->SetTransform(transform);
+    dispfieldGenerator->SetTransform(dtransform);
     try
     {
       dispfieldGenerator->Update();
