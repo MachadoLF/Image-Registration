@@ -162,8 +162,8 @@ public:
     {
       return;
     }
-    std::cout << optimizer->GetCurrentIteration() << "   ";
-    std::cout << optimizer->GetCurrentMetricValue() << "   ";
+    std::cout << optimizer->GetCurrentIteration() << "   "<< std::endl;
+    std::cout << optimizer->GetCurrentMetricValue() << "   "<< std::endl;
     // std::cout << optimizer->GetInfinityNormOfProjectedGradient() << std::endl;
   }
 };
@@ -349,19 +349,19 @@ main(int argc, char * argv[])
 
   // Setting multiresolution step for rigid stage
   //
-  constexpr unsigned int rnumberOfLevels = 3;
+  constexpr unsigned int rnumberOfLevels = 1;
 
   RRegistrationType::ShrinkFactorsArrayType rshrinkFactorsPerLevel;
-  rshrinkFactorsPerLevel.SetSize( 3 );
-  rshrinkFactorsPerLevel[0] = 3;
-  rshrinkFactorsPerLevel[1] = 2;
-  rshrinkFactorsPerLevel[2] = 1;
+  rshrinkFactorsPerLevel.SetSize( 1 );
+  rshrinkFactorsPerLevel[0] = 1;
+  // rshrinkFactorsPerLevel[1] = 2;
+  // rshrinkFactorsPerLevel[2] = 1;
 
   RRegistrationType::SmoothingSigmasArrayType rsmoothingSigmasPerLevel;
   rsmoothingSigmasPerLevel.SetSize( 3 );
   rsmoothingSigmasPerLevel[0] = 1;
-  rsmoothingSigmasPerLevel[1] = 2;
-  rsmoothingSigmasPerLevel[2] = 3;
+  //rsmoothingSigmasPerLevel[1] = 2;
+  //rsmoothingSigmasPerLevel[2] = 3;
 
   rregistration->SetNumberOfLevels( rnumberOfLevels );
   rregistration->SetShrinkFactorsPerLevel( rshrinkFactorsPerLevel );
