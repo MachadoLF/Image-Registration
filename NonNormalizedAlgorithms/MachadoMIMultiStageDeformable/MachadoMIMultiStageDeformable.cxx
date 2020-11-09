@@ -169,43 +169,6 @@ public:
 };
 
 
-/*
-// CommandIterationUpdate with specific
-class CommandIterationUpdate : public itk::Command
-{
-public:
-  using Self = CommandIterationUpdate;
-  using Superclass = itk::Command;
-  using Pointer = itk::SmartPointer<Self>;
-  itkNewMacro(Self);
-
-protected:
-  CommandIterationUpdate() = default;
-
-public:
-  using OptimizerType = itk::LBFGSBOptimizerv4;
-  using OptimizerPointer = const OptimizerType *;
-
-  void
-  Execute(itk::Object * caller, const itk::EventObject & event) override
-  {
-    Execute((const itk::Object *)caller, event);
-  }
-
-  void
-  Execute(const itk::Object * object, const itk::EventObject & event) override
-  {
-    auto optimizer = static_cast<OptimizerPointer>(object);
-    if (!(itk::IterationEvent().CheckEvent(&event)))
-    {
-      return;
-    }
-    std::cout << optimizer->GetCurrentIteration() << "   ";
-    std::cout << optimizer->GetCurrentMetricValue() << "   ";
-    std::cout << optimizer->GetInfinityNormOfProjectedGradient() << std::endl;
-  }
-}; */
-
 int
 main(int argc, char * argv[])
 {
@@ -352,14 +315,14 @@ main(int argc, char * argv[])
   constexpr unsigned int rnumberOfLevels = 1;
 
   RRegistrationType::ShrinkFactorsArrayType rshrinkFactorsPerLevel;
-  rshrinkFactorsPerLevel.SetSize( 1 );
-  rshrinkFactorsPerLevel[0] = 1;
-  // rshrinkFactorsPerLevel[1] = 2;
-  // rshrinkFactorsPerLevel[2] = 1;
+  rshrinkFactorsPerLevel.SetSize( rnumberOfLevels );
+  rshrinkFactorsPerLevel[0] = 3;
+  //rshrinkFactorsPerLevel[1] = 2;
+  //rshrinkFactorsPerLevel[2] = 1;
 
   RRegistrationType::SmoothingSigmasArrayType rsmoothingSigmasPerLevel;
-  rsmoothingSigmasPerLevel.SetSize( 3 );
-  rsmoothingSigmasPerLevel[0] = 1;
+  rsmoothingSigmasPerLevel.SetSize( 1 );
+  rsmoothingSigmasPerLevel[0] = 3;
   //rsmoothingSigmasPerLevel[1] = 2;
   //rsmoothingSigmasPerLevel[2] = 3;
 
@@ -464,13 +427,14 @@ main(int argc, char * argv[])
   // Set transform to identity
   dtransform->SetIdentity();
 
-  compositeTransform->AddTransform(dtransform);
-  compositeTransform->SetOnlyMostRecentTransformToOptimizeOn();
+  //compositeTransform->AddTransform(dtransform);
+  //compositeTransform->SetOnlyMostRecentTransformToOptimizeOn();
 
 
   // Software Guide : BeginCodeSnippet
   dregistration->SetInitialTransform(compositeTransform);
-  dregistration->InPlaceOn();
+  dregistration->SetMovingInitialTransform(dtransform);
+  // dregistration->InPlaceOn();
   // Software Guide : EndCodeSnippet
 
 
@@ -504,7 +468,7 @@ main(int argc, char * argv[])
 
   //  A single level registration process is run using
   //  the shrink factor 3 and smoothing sigma 2,1,0.
-  //
+  /*
   constexpr unsigned int dnumberOfLevels = 3;
 
   DRegistrationType::ShrinkFactorsArrayType dshrinkFactorsPerLevel;
@@ -562,12 +526,13 @@ main(int argc, char * argv[])
   }
 
   dregistration->SetTransformParametersAdaptorsPerLevel(adaptors);
+  */
 
   // Add time and memory probes
   itk::TimeProbesCollectorBase   chronometer;
   itk::MemoryProbesCollectorBase memorymeter;
 
-  std::cout << std::endl << "Starting Registration" << std::endl;
+  std::cout << std::endl << "Starting BSpline Stage" << std::endl;
 
   try
   {

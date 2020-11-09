@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.1, 2020-10-29T10:28:32. -->
+<!-- Written by QtCreator 4.11.1, 2020-11-04T12:30:43. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -316,8 +316,8 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">MachadoMIMultiStageDeformable</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.MachadoMIMultiStageDeformable</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">MachadoMIMultiStageDeformable</value>
-    <value type="QString" key="RunConfiguration.Arguments">/home/leo/Documents/Doutorado/AAMP_phantoms_ImSimQA_TG_132/CBCT_e_CT_deformado/DATASET1_CBCT.nrrd
-/home/leo/Documents/Doutorado/AAMP_phantoms_ImSimQA_TG_132/CBCT_e_CT_deformado/DATASET1_CT_withNoiseAndDeformed.nrrd
+    <value type="QString" key="RunConfiguration.Arguments">/home/leo/Documents/Doutorado/AAMP_phantoms_ImSimQA_TG_132/CBCT_e_CT_deformado/DATASET1_CT_withNoiseAndDeformed.nrrd
+ /home/leo/Documents/Doutorado/AAMP_phantoms_ImSimQA_TG_132/CBCT_e_CT_deformado/DATASET1_CBCT.nrrd
 result.nrrd</value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>
@@ -328,7 +328,7 @@ result.nrrd</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory"></value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/leo/Documents/Doutorado/Image-Registration/NonNormalizedAlgorithms/MachadoMIMultiStageDeformable/debug</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default"></value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
